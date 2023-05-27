@@ -39,8 +39,6 @@ mkdir /mnt/boot/efi
 mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@home /dev/sdc3 /mnt/home
 #mount disk
 mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@var /dev/sdc3 /mnt/var
-#mount boot
-mount /dev/sdc2 /boot/efi
 #install arch
 pacstrap -K /mnt base base-devel linux-firmware refind efibootmgr iwd networkmanager micro htop btrfs-progs git intel-ucode zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions grml-zsh-config iucode-tool --noconfirm
 #fstab generation
@@ -57,6 +55,8 @@ arch-chroot /mnt sh -c "$(cat chroot)" $username $hostname $pass
 systemctl enable iwd.service
 #services
 systemctl enable NetworkManager.service
+#mount
+mount /dev/sdc2 /boot/efi
 #hostname
 echo $hostname >> /etc/hostname
 #locale eng
