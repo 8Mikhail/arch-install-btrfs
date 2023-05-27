@@ -1,3 +1,16 @@
+#!/bin/bash
+
+echo '--------------------------------------------------------------------------------'
+echo '|                               Config Install                                 |'
+echo '--------------------------------------------------------------------------------'
+username=neo
+hostname=matrix
+pass=1811
+
+echo '--------------------------------------------------------------------------------'
+echo ' Install Arch Linux '$username'@'$hostname
+echo '--------------------------------------------------------------------------------'
+
 #formating disk
 mkfs.btrfs -f /dev/sdc3
 #formating disk
@@ -37,11 +50,11 @@ systemctl enable iwd.service
 #services
 systemctl enable NetworkManager.service
 #hostname
-echo matrix >> /etc/hostname
+echo $hostname >> /etc/hostname
 #locale eng
-sed '/en_US.UTF-8/s/^#//' -i /etc/locale.gen
+sed -i 's/#en_US.U/en_US.U/g' /etc/locale.gen
 #locale rus
-sed '/ru_RU.UTF-8/s/^#//' -i /etc/locale.gen
+sed -i 's/#ru_RU.U/ru_RU.U/g' /etc/locale.gen
 #locale-gen
 locale-gen
 #locale
@@ -49,13 +62,19 @@ echo LANG=en_US.UTF-8 >> /etc/locale.conf
 #locale
 echo LANG=ru_RU.UTF-8 >> /etc/locale.conf
 #passwd
-passwd
+(
+    echo $pass
+    echo $pass
+) | passwd
 #add user
-useradd -m -g users -G wheel,video -s /bin/bash neo
+useradd -m -g users -G wheel,video -s /bin/bash $username
 #passwd user
-passwd neo
+(
+    echo $pass
+    echo $pass
+) | passwd $username
 #sudoers
-sed '/# %wheel ALL=(ALL:ALL) ALL/s/^#//' -i /etc/sudoers
+echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers
 #mount boot
 mount /dev/sdc2 /boot/efi
 #isntall core
@@ -69,12 +88,12 @@ echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
 #/etc/pacman.conf
 sed '/#ParallelDownloads = 5/s/^#//' -i /etc/pacman.conf
 #/etc/pacman.conf
-sed '/#[multilib]/s/^#//' -i /etc/pacman.conf
-#/etc/pacman.conf
-sed '/#Include = /etc/pacman.d/mirrorlist/s/^#//' -i /etc/pacman.conf
+echo -e '[multilib]\Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
 # pacman -Sy
 pacman -Sy
 #install core
 pacman -S linux-lqx linux-lqx-headers
 #blkid
 blkid /dev/sdc3
+
+exit
