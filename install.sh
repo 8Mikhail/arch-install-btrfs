@@ -3,8 +3,8 @@
 username=neo
 hostname=matrix
 pass=1811
-disk_root=/dev/sdc3
-disk_boot=/dev/sdc2
+disk_root=/dev/sda3
+disk_boot=/dev/sda2
 
 #formating disk
 mkfs.btrfs -f $disk_root
