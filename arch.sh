@@ -28,12 +28,14 @@ mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@home /dev/
 mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@var /dev/sdc3 /mnt/var
 #install arch
 pacstrap -K /mnt base base-devel linux-firmware refind efibootmgr iwd networkmanager micro htop btrfs-progs git intel-ucode zsh iucode-tool
+#fstab generation
+genfstab -U -p /mnt >> /mnt/etc/fstab
 #chroot /mnt
 arch-chroot /mnt
 #services
-sudo systemctl enable iwd.service
+systemctl enable iwd.service
 #services
-sudo systemctl enable NetworkManager.service
+systemctl enable NetworkManager.service
 #hostname
 echo matrix >> /etc/hostname
 #locale eng
@@ -54,22 +56,16 @@ useradd -m -g users -G wheel,video -s /bin/bash neo
 passwd neo
 #sudoers
 sed '/# %wheel ALL=(ALL:ALL) ALL/s/^#//' -i /etc/sudoers
-#exit
-exit
-#fstab generation
-genfstab -U -p /mnt >> /mnt/etc/fstab
-#chroot /mnt
-arch-chroot /mnt
 #mount boot
 mount /dev/sdc2 /boot/efi
 #isntall core
-sudo pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
+pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
 #install core
-sudo pacman-key --lsign-key 9AE4078033F8024D
+pacman-key --lsign-key 9AE4078033F8024D
 #/etc/pacman.conf
-echo [liquorix] >> /etc/pacman.conf
+echo '[liquorix]' >> /etc/pacman.conf
 #/etc/pacman.conf
-echo Server = https://liquorix.net/archlinux/$repo/$arch >> /etc/pacman.conf
+echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
 #/etc/pacman.conf
 sed '/#ParallelDownloads = 5/s/^#//' -i /etc/pacman.conf
 #/etc/pacman.conf
@@ -79,6 +75,6 @@ sed '/#Include = /etc/pacman.d/mirrorlist/s/^#//' -i /etc/pacman.conf
 # pacman -Sy
 pacman -Sy
 #install core
-sudo pacman -S linux-lqx linux-lqx-headers
+pacman -S linux-lqx linux-lqx-headers
 #blkid
 blkid /dev/sdc3
