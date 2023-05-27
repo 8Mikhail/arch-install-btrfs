@@ -95,7 +95,7 @@ echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
 sed '/#ParallelDownloads = 5/s/^#//' -i /etc/pacman.conf
 #/etc/pacman.conf
 echo -e '[multilib]' >> /etc/pacman.conf
-#/etc/pacma.conf
+#/etc/pacman.conf
 echo -e 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
 # pacman -Sy
 pacman -Sy
