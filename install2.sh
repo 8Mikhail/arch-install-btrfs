@@ -37,7 +37,7 @@ useradd -m -g users -G wheel,video -s /bin/bash $username
     echo $pass
 ) | passwd $username
 #sudoers
-echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers
+sed '/# %wheel ALL=(ALL:ALL) ALL/s/^#//' -i /etc/sudoers
 #isntall core lqx
 pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
 #install core lqx
@@ -49,9 +49,9 @@ echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
 #pacman.conf
 sed '/#ParallelDownloads = 5/s/^#//' -i /etc/pacman.conf
 #pacman.conf
-echo -e '[multilib]' >> /etc/pacman.conf
+sed '/[multilib]/s/^#//' -i /etc/pacman.conf
 #pacman.conf
-echo -e 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
+sed '/Include = /etc/pacman.d/mirrorlist/s/^#//' -i /etc/pacman.conf
 #pacman -Sy
 pacman -Sy
 #install core lqx
@@ -61,7 +61,7 @@ uuid=$(lsblk -no UUID $disk_root)
 #refind
 echo '“Boot to standard options” “rw root=UUID=$uuid rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1"' >> /boot/refind_linux.conf
 #refind
-echo '“Boot to single-user mode” “rw root=UUID=$uuid rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1 single"' >> /boot/refind_linux.conf
+echo '"Boot to single-user mode” “rw root=UUID=$uuid rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1 single"' >> /boot/refind_linux.conf
 #refind
 echo '"Boot with minimal options" "ro root=$disk"' >> /boot/refind_linux.conf
 #refind
