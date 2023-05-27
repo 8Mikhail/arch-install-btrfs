@@ -50,6 +50,8 @@ mkdir -p /mnt/home/$username/
 #chroot /mnt
 cp -f install.sh /mnt/home/$username/
 #chroot /mnt
+cp -f chroot.sh /mnt/home/$username/
+#chroot /mnt 
 arch-chroot /mnt sh -c "$(cat chroot)" $username $hostname $pass
 #services
 systemctl enable iwd.service
