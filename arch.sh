@@ -27,7 +27,7 @@ mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@home /dev/
 #mount disk
 mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@var /dev/sdc3 /mnt/var
 #install arch
-pacstrap -K -i /mnt base base-devel linux-firmware refind efibootmgr iwd networkmanager micro htop btrfs-progs git intel-ucode zsh iucode-tool
+pacstrap -K /mnt base base-devel linux-firmware refind efibootmgr iwd networkmanager micro htop btrfs-progs git intel-ucode zsh iucode-tool
 #chroot /mnt
 arch-chroot /mnt
 #services
