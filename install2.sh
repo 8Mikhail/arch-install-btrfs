@@ -6,7 +6,8 @@ echo '--------------------------------------------------------------------------
 username=neo
 hostname=matrix
 pass=1811
-disk=/dev/sdc3
+disk_root=/dev/sdc3
+disk_boot=/dev/sdc2
 
 echo '--------------------------------------------------------------------------------'
 echo ' Install Arch Linux '$username'@'$hostname
@@ -16,20 +17,20 @@ systemctl enable iwd.service
 #services
 systemctl enable NetworkManager.service
 #mount
-mount /dev/sdc2 /boot/efi
+mount $disk_boot /boot/efi
 #hostname
 echo $hostname >> /etc/hostname
 #locale eng
 sed -i 's/#en_US.U/en_US.U/g' /etc/locale.gen
 #locale rus
 sed -i 's/#ru_RU.U/ru_RU.U/g' /etc/locale.gen
-#locale-gen
+#locale generation
 locale-gen
-#locale
+#locale conf
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
-#locale
+#locale conf
 echo LANG=ru_RU.UTF-8 >> /etc/locale.conf
-#passwd
+#passed root
 (
     echo $pass
     echo $pass
@@ -43,33 +44,33 @@ useradd -m -g users -G wheel,video -s /bin/bash $username
 ) | passwd $username
 #sudoers
 echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers
-#isntall core
+#isntall core lqx
 pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
-#install core
+#install core lqx
 pacman-key --lsign-key 9AE4078033F8024D
-#/etc/pacman.conf
+#install core lqx
 echo '[liquorix]' >> /etc/pacman.conf
-#/etc/pacman.conf
+#install core lqx
 echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
-#/etc/pacman.conf
+#pacman.conf
 sed '/#ParallelDownloads = 5/s/^#//' -i /etc/pacman.conf
-#/etc/pacman.conf
+#pacman.conf
 echo -e '[multilib]' >> /etc/pacman.conf
-#/etc/pacman.conf
+#pacman.conf
 echo -e 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
-# pacman -Sy
+#pacman -Sy
 pacman -Sy
-#install core
+#install core lqx
 pacman -S linux-lqx linux-lqx-headers --noconfirm
 #blkid
-uuid=$(lsblk -no UUID $disk)
-#blkid
+uuid=$(lsblk -no UUID $disk_root)
+#refind
 echo '“Boot to standard options” “rw root=UUID=$uuid rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1"' >> /boot/refind_linux.conf
-#blkid
+#refind
 echo '“Boot to single-user mode” “rw root=UUID=$uuid rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1 single"' >> /boot/refind_linux.conf
-#blkid
+#refind
 echo '"Boot with minimal options" "ro root=$disk"' >> /boot/refind_linux.conf
-#create boot
+#refind
 refind-install
 #mkinitcpio
 mkinitcpio -P
