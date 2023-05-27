@@ -18,6 +18,6 @@
 
 8)Введите " exit " и перезагрузитесь с помощью команды " reboot ";
 
-9)После ввода логина и пароля введите " bash bash arch-install-btrfs/install3.sh ";
+9)После ввода логина и пароля введите " bash arch-install-btrfs/install3.sh ";
 
 10)Перезагружаемся с помощью команды " reboot ".
