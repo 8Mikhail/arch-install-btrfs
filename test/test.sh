@@ -1,9 +1,5 @@
 #lsblk
 lsblk
-#iwctl
-iwctl
-#конект к интернету
-station wlan0 connect vivo_V25e
 #форматирую диск
 mkfs.btrfs -f /dev/sdc1
 #mount mnt
