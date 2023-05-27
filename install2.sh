@@ -6,6 +6,7 @@ echo '--------------------------------------------------------------------------
 username=neo
 hostname=matrix
 pass=1811
+disk=/dev/sdc3
 
 echo '--------------------------------------------------------------------------------'
 echo ' Install Arch Linux '$username'@'$hostname
@@ -61,4 +62,16 @@ pacman -Sy
 #install core
 pacman -S linux-lqx linux-lqx-headers --noconfirm
 #blkid
-blkid /dev/sdc3
+uuid=$(lsblk -no UUID $disk)
+#blkid
+echo '“Boot to standard options” “rw root=UUID=$uuid rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1"' >> /boot/refind_linux.conf
+#blkid
+echo '“Boot to single-user mode” “rw root=UUID=$uuid rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1 single"' >> /boot/refind_linux.conf
+#blkid
+echo '"Boot with minimal options" "ro root=$disk"' >> /boot/refind_linux.conf
+#create boot
+refind-install
+#mkinitcpio
+mkinitcpio -P
+#exit
+exit
