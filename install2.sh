@@ -57,13 +57,13 @@ pacman -Sy
 #install core lqx
 pacman -S linux-lqx linux-lqx-headers --noconfirm
 #blkid
-uuid=$(lsblk -no UUID $disk_root)
+uuid=$(blkid -s UUID -o value $disk_root)
 #refind
-echo '“Boot to standard options” “rw root=UUID=$uuid rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1"' >> /boot/refind_linux.conf
+echo '“Boot to standard options” “rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1"' >> /boot/refind_linux.conf
 #refind
-echo '"Boot to single-user mode” “rw root=UUID=$uuid rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1 single"' >> /boot/refind_linux.conf
+echo '"Boot to single-user mode” “rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1 single"' >> /boot/refind_linux.conf
 #refind
-echo '"Boot with minimal options" "ro root=$disk"' >> /boot/refind_linux.conf
+echo '"Boot with minimal options" "ro root='$disk_root'"' >> /boot/refind_linux.conf
 #refind
 refind-install
 #mkinitcpio
