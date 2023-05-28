@@ -62,9 +62,9 @@ echo "source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
 #zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 #zsh
-sudo sed 's/export PATH=#HOME/bin:usr/local/bin:$PATH/g' .zshrc
+echo -e 'export PATH=#HOME/bin:usr/local/bin:$PATH/g' >> .zshrc
 #zsh
-sudo sed 's/plugins=(git)/plugins=(git zsh-autosuggestions sudo)/g' .zshrc
+sudo sed 's/plugins=(git)/plugins=(git zsh-autosuggestions sudo)/g' -i .zshrc
 #zsh
 source .zshrc
 #portproton
@@ -118,6 +118,6 @@ systemctl enable smb
 #samba
 systemctl enable nmb
 #mkinitcpio
-sudo mkinitcpio -P
+mkinitcpio -P
 #exit
 exit
