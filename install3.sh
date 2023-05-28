@@ -56,7 +56,7 @@ echo 'MOZ_ENABLE_WAYLAND=1 firefox' >> /etc/enviroment
 #enviroment
 echo 'GST_VAAPI_ALL_DRIVERS=1' >> /etc/enviroment
 #samba
-echo '[global' >> /etc/samba/smb.conf
+echo '[global]' >> /etc/samba/smb.conf
 #samba
 echo 'usershare path = /var/lib/samba/usershares' >> /etc/samba/smb.conf
 #samba
