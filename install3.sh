@@ -3,6 +3,8 @@
 username=neo
 pass=1811
 
+#pacman -Sy
+sudo pacman -Sy
 #xorg
 sudo pacman –S xorg-server
 #timezone
