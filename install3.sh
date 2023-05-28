@@ -11,14 +11,16 @@ sudo pacman –S xorg-server --noconfirm
 sudo timedatectl set-timezone Asia/Krasnoyarsk
 #nvidia
 sudo pacman -S nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils --noconfirm
+#pipewire
+sudo pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack --noconfirm
 #kde and drivers
-sudo pacman –S dolphin dolphin-plugins konsole plasma plasma-desktop kdenlive gwenview elisa mpv kcalc kcalendarcore kdeconnect plasma-wayland-session kwallet manager bluez-utils libva-utils vdpauinfo vulkan-icd-loader lib32-vulkan-icd-loader vulkan-headers vulkan-validation-layers vulkan-tools pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack qt-gstreamer kdenetwork-filesharing spectacle --noconfirm
+sudo pacman –S dolphin dolphin-plugins konsole plasma plasma-desktop kdenlive gwenview elisa mpv kcalc kcalendarcore kdeconnect plasma-wayland-session kwallet manager libva-utils vdpauinfo vulkan-icd-loader lib32-vulkan-icd-loader vulkan-headers vulkan-validation-layers vulkan-tools qt-gstreamer kdenetwork-filesharing spectacle --noconfirm
 #apps
 sudo pacman -S firefox gparted engrampa caja p7zip unace brotli rpm-tools cpio latte-dock steam steam-native-runtime obs-studio cuda blender krita qbittorrent telegram-desktop gnome-disk-utility cpupower bash icoutils wget bubblewrap zstd cabextract bc tar openssl gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr vulkan-driver lsof lib32-freetype2 lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-vulkan-driver lib32-gamemode lib32-openssl meson gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers samba cifs-utils extra-cmake-modules plasma-framework gst-libav base-devel mpv python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake --noconfirm
 #sddm
 sudo pacman -S sddm --noconfirm
 #Bluetooth
-sudo pacman -S blues --noconfirm
+sudo pacman -S bluez bluez-utils --noconfirm
 #services
 sudo systemctl enable sddm
 #services
