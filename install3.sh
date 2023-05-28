@@ -43,6 +43,15 @@ cd
 pikaur -S pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git libva-nvidia-driver-git --noconfirm
 #services
 sudo systemctl enable xow
+#portproton
+wget -c "https://github.com/Castro-Fidel/PortWINE/raw/master/portwine_install_script/PortProton_1.0" && sh PortProton_1.0 -rus
+#mkinitcpio.conf
+sudo sed 's/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm btrfs)/g' -i /etc/mkinitcpio.conf
+#root
+( 
+     echo $pass 
+     echo $pass 
+ ) |su
 #enviroment
 echo 'NVD_BACKEND=direct' >> /etc/enviroment
 #enviroment
@@ -69,25 +78,21 @@ echo 'usershare owner only = yes' >> /etc/samba/smb.conf
 ( 
      echo $pass 
      echo $pass 
- ) | sudo smbpasswd -a $username
+ ) | smbpasswd -a $username
 #samba
-sudo usermod -g users -G wheel,video $username
+usermod -g users -G wheel,video $username
 #samba
-sudo mkdir /var/lib/samba/usershares
+mkdir /var/lib/samba/usershares
 #samba
-sudo chown root:users /var/lib/samba/usershares
+chown root:users /var/lib/samba/usershares
 #samba
-sudo chmod 1770 /var/lib/samba/usershares
+chmod 1770 /var/lib/samba/usershares
 #samba
-sudo gpasswd users -a $username
+gpasswd users -a $username
 #samba
-sudo systemctl enable smb
+systemctl enable smb
 #samba
-sudo systemctl enable nmb
-#portproton
-wget -c "https://github.com/Castro-Fidel/PortWINE/raw/master/portwine_install_script/PortProton_1.0" && sh PortProton_1.0 -rus
-#mkinitcpio.conf
-sudo sed 's/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm btrfs)/g' -i /etc/mkinitcpio.conf
+systemctl enable nmb
 #mkinitcpio
 sudo mkinitcpio -P
 #exit
