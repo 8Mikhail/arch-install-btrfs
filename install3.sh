@@ -62,7 +62,10 @@ echo 'usershare allow guests = yes' >> /etc/samba/smb.conf
 #samba
 echo 'usershare owner only = yes' >> /etc/samba/smb.conf
 #samba
-sudo smbpasswd -a $username
+( 
+     echo $pass 
+     echo $pass 
+ ) | sudo smbpasswd -a $username
 #samba
 sudo usermod -g users -G wheel,video $username
 #samba
