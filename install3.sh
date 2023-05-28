@@ -6,7 +6,7 @@ pass=1811
 #setfont cyr-sun16
 setfont cyr-sun16
 #xorg
-sudo pacman –S xorg-server --noconfirm
+sudo pacman -S xorg-server --noconfirm
 #timezone
 sudo timedatectl set-timezone Asia/Krasnoyarsk
 #nvidia
