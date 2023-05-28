@@ -14,7 +14,7 @@ sudo pacman -S nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-open
 #pipewire
 sudo pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack --noconfirm
 #KDE and apps
-sudo pacman -S plasma plasma-desktop
+sudo pacman -S plasma plasma-desktop --noconfirm
 #KDE and apps
 sudo pacman -S dolphin dolphin-plugins konsole kdenlive gwenview elisa mpv kcalc kcalendarcore kdeconnect plasma-wayland-session kwallet-manager libva-utils vdpauinfo vulkan-icd-loader lib32-vulkan-icd-loader vulkan-headers vulkan-validation-layers vulkan-tools qt-gstreamer kdenetwork-filesharing spectacle --noconfirm
 #apps
