@@ -70,9 +70,9 @@ sudo chmod 1770 /var/lib/samba/usershares
 #samba
 sudo gpasswd users -a $username
 #samba
-sudo systemctl enable smb.service
+sudo systemctl enable smb
 #samba
-sudo systemctl enable nmb.service
+sudo systemctl enable nmb
 #portproton
 wget -c "https://github.com/Castro-Fidel/PortWINE/raw/master/portwine_install_script/PortProton_1.0" && sh PortProton_1.0 -rus
 #mkinitcpio
