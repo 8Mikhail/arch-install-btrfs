@@ -49,6 +49,32 @@ echo 'EGL_PLATFORM=wayland' >> /etc/enviroment
 echo 'MOZ_ENABLE_WAYLAND=1 firefox' >> /etc/enviroment
 #enviroment
 echo 'GST_VAAPI_ALL_DRIVERS=1' >> /etc/enviroment
+#samba
+echo '[global' >> /etc/samba/smb.conf
+#samba
+echo 'usershare path = /var/lib/samba/usershares' >> /etc/samba/smb.conf
+#samba
+echo 'usershare max shares = 100' >> /etc/samba/smb.conf
+#samba
+echo 'usershare allow guests = yes' >> /etc/samba/smb.conf
+#samba
+echo 'usershare owner only = yes' >> /etc/samba/smb.conf
+#samba
+sudo smbpasswd -a $username
+#samba
+sudo usermod -g users -G wheel,video $username
+#samba
+sudo mkdir /var/lib/samba/usershares
+#samba
+sudo chown root:users /var/lib/samba/usershares
+#samba
+sudo chmod 1770 /var/lib/samba/usershares
+#samba
+sudo gpasswd users -a $username
+#samba
+sudo systemctl enable smb.service
+#samba
+sudo systemctl enable nmb.service
 #mkinitcpio
 sudo mkinitcpio -P
 #exit
