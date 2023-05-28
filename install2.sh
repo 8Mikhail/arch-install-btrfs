@@ -49,9 +49,9 @@ echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
 #pacman.conf
 sed 's/#ParallelDownloads = 5/ParallelDownloads = 10/' -i /etc/pacman.conf
 #pacman.conf
-sed 's/#[multilib]/[multilib]/' -i /etc/pacman.conf
+sed 's/^#/[multilib]/' -i /etc/pacman.conf
 #pacman.conf
-sed 's/#Include = /etc/pacman.d/mirrorlist/Include = /etc/pacman.d/mirrorlist/' -i /etc/pacman.conf
+sed 's/^#/(Include = /etc/pacman.d/mirrorlist)/' -i /etc/pacman.conf
 #pacman -Sy
 pacman -Sy
 #install core lqx
@@ -59,11 +59,11 @@ pacman -S linux-lqx linux-lqx-headers --noconfirm
 #blkid
 uuid=$(blkid -s UUID -o value $disk_root)
 #refind
-echo '“Boot to standard options” “rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1"' >> /boot/refind_linux.conf
+echo “Boot to standard options” “rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1" >> /boot/refind_linux.conf
 #refind
-echo '"Boot to single-user mode” “rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1 single"' >> /boot/refind_linux.conf
+echo "Boot to single-user mode” “rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1 single" >> /boot/refind_linux.conf
 #refind
-echo '"Boot with minimal options" "ro root='$disk_root'"' >> /boot/refind_linux.conf
+echo "Boot with minimal options" "ro root='$disk_root'" >> /boot/refind_linux.conf
 #refind
 refind-install
 #mkinitcpio
