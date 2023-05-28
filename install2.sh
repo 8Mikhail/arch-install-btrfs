@@ -37,7 +37,7 @@ useradd -m -g users -G wheel,video -s /bin/bash $username
     echo $pass
 ) | passwd $username
 #sudoers
-sed '/# %wheel ALL=(ALL:ALL) ALL/s/^#//' -i /etc/sudoers
+sed 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/g' -i /etc/sudoers
 #isntall core lqx
 pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
 #install core lqx
@@ -47,11 +47,11 @@ echo '[liquorix]' >> /etc/pacman.conf
 #install core lqx
 echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
 #pacman.conf
-sed '/#ParallelDownloads = 5/s/^#//' -i /etc/pacman.conf
+sed 's/#ParallelDownloads = 5/ParallelDownloads = 10/g' -i /etc/pacman.conf
 #pacman.conf
-sed '/[multilib]/s/^#//' -i /etc/pacman.conf
+sed 's/#[multilib]/[multilib]/g' -i /etc/pacman.conf
 #pacman.conf
-sed '/Include = /etc/pacman.d/mirrorlist/s/^#//' -i /etc/pacman.conf
+sed 's/#Include = /etc/pacman.d/mirrorlist/Include = /etc/pacman.d/mirrorlist/g' -i /etc/pacman.conf
 #pacman -Sy
 pacman -Sy
 #install core lqx
