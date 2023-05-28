@@ -30,7 +30,7 @@ makepkg -fsri
 #cd
 cd
 #aur apps
-pikaur -S pamac-aur stacer-bin fastfetch timeshift timeshifs-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git libva-nvidia-driver-git --noconfirm
+pikaur -S pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git libva-nvidia-driver-git --noconfirm
 #services
 sudo systemctl enable xow
 #enviroment
