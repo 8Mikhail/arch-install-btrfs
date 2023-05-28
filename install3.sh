@@ -34,7 +34,7 @@ git clone https://aur.archlinux.org/pikaur.git
 #pikaur
 cd pikaur
 #pikaur
-makepkg -fsri
+makepkg -fsri --noconfirm
 #cd
 cd
 #aur apps
@@ -53,8 +53,6 @@ echo 'EDITOR=micro' >> /etc/enviroment
 echo 'EGL_PLATFORM=wayland' >> /etc/enviroment
 #enviroment
 echo 'MOZ_ENABLE_WAYLAND=1 firefox' >> /etc/enviroment
-#enviroment
-echo 'GST_VAAPI_ALL_DRIVERS=1' >> /etc/enviroment
 #samba
 echo '[global]' >> /etc/samba/smb.conf
 #samba
@@ -86,6 +84,8 @@ sudo systemctl enable smb
 sudo systemctl enable nmb
 #portproton
 wget -c "https://github.com/Castro-Fidel/PortWINE/raw/master/portwine_install_script/PortProton_1.0" && sh PortProton_1.0 -rus
+#mkinitcpio.conf
+sudo sed 's/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm btrfs)/g' -i /etc/mkinitcpio.conf
 #mkinitcpio
 sudo mkinitcpio -P
 #exit
