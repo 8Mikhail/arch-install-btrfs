@@ -24,7 +24,9 @@ sudo pacman -S bluez bluez-utils --noconfirm
 #services
 sudo systemctl enable sddm
 #services
-sudo systemctl enable Bluetooth
+sudo systemctl enable bluetooth
+#setting cpupower
+sudo cpupower frequency-set -g performance
 #services
 sudo systemctl enable cpupower
 #pikaur
