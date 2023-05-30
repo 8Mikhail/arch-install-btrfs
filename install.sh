@@ -3,11 +3,11 @@
 echo '--------------------------------------------------'
 echo '|                Config Install                  |'
 echo '--------------------------------------------------'
-username=neo
-hostname=matrix
+username=hacker
+hostname=world
 pass=1811
-disk_root=/dev/sda3
-disk_boot=/dev/sda2
+disk_root=/dev/nvme0n1p4
+disk_boot=/dev/nvme0n1p1
 ucode=intel-ucode
 sleep=5
 
