@@ -1,6 +1,6 @@
 #!/bin/bash
 
-username=neo
+username=hacker
 pass=1811
 
 #setfont cyr-sun16
