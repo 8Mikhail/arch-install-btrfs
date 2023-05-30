@@ -13,8 +13,6 @@ opencl=opencl-amd
 
 #setfont cyr-sun16
 setfont cyr-sun16
-#hmod
-sudo chmod -R 777 /home/$username/
 #xorg
 sudo pacman -S xorg-server --noconfirm
 #timezone
