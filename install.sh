@@ -11,6 +11,8 @@ disk_boot=/dev/nvme0n1p1
 ucode=intel-ucode
 sleep=5
 
+#setfont cyr-sun16 
+setfont cyr-sun16
 echo '--------------------------------------------------'
 echo '|              Install Arch Linux                |'
 echo '--------------------------------------------------'
