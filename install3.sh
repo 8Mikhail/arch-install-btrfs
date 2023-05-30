@@ -5,9 +5,9 @@ username=hacker
 pass=1811
 #Раскомментируйте на необходимое 
 #nvidia=nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils
-#libva-mesa=libva-mesa-driver lib32-libva-mesa-driver
+libva-mesa=libva-mesa-driver lib32-libva-mesa-driver
 #libva-vdpau=libva-vdpau-driver lib32-libva-vdpau-driver
-libva-nvidia-driver=libva-nvidia-driver-git
+#libva-nvidia-driver=libva-nvidia-driver-git
 
 #setfont cyr-sun16
 setfont cyr-sun16
