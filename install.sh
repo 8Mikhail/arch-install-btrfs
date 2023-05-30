@@ -23,6 +23,8 @@ echo '|             Форматирование диска               |'
 echo '--------------------------------------------------'
 echo 'Format disk '$disk_root'@'$disk_boot'				'
 echo '--------------------------------------------------'
+#sleep
+sleep $sleep
 
 #formating disk
 mkfs.btrfs -f $disk_root
