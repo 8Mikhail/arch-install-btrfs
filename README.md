@@ -12,12 +12,4 @@
 
 5)Введите " bash  arch-install-btrfs/install.sh ";
 
-6)Когда будете в " arch-chroot /mnt ", выполните пункт 4;
-
-7)Введите " bash /arch-install-btrfs/install2.sh ";
-
-8)Введите " exit " и перезагрузитесь с помощью команды " reboot ";
-
-9)После ввода логина и пароля введите " bash /home/$username/arch-install-btrfs/install3.sh ";
-
-10)Перезагружаемся с помощью команды " reboot ".
+6)Ожидаем окончания установки системы.
