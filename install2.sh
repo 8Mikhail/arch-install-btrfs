@@ -44,7 +44,7 @@ useradd -m -g users -G wheel,video -s /bin/bash $username
 ) | passwd $username
 #sudoers
 sed 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' -i /etc/sudoers
-#isntall core lqx
+#install core lqx
 pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
 #install core lqx
 pacman-key --lsign-key 9AE4078033F8024D
