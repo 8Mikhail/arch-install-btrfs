@@ -68,9 +68,9 @@ echo '"Boot to single-user mode” “rw root=UUID='$uuid' rootflags=subvol=@ lo
 echo '"Boot with minimal options" "ro root='$disk_root'"' >> /boot/refind_linux.conf
 #refind
 refind-install
-#pacman -Sy
-sudo pacman -Sy
 #mkinitcpio
-mkinitcpio -P
+mkinitcpio IP
+#pacman -Sy 
+pacman -Sy
 #exit
 exit
