@@ -44,11 +44,11 @@ sudo systemctl enable cpupower
 #pikaur
 function aur { 
          cd /tmp 
-         git clone https://aur.archlinux.org/pikaur.git 
-         chown -R $username:users /tmp/pikaur 
-         chown -R $username:users /tmp/pikaur/PKGBUILD 
-         cd pikaur 
-         ( echo $pass ) | -u $username makepkg -si --noconfirm 
+         git clone https://aur.archlinux.org/pikaur.git
+         chown -R $username:users /tmp/pikaur
+         chown -R $username:users /tmp/pikaur/PKGBUILD
+         cd pikaur
+         ( echo $pass ) | -u $username makepkg -fsri --noconfirm
          cd .. 
          rm -rf pikaur 
  }
@@ -59,8 +59,8 @@ sudo systemctl enable xow
 #portproton
 wget -c "https://github.com/Castro-Fidel/PortWINE/raw/master/portwine_install_script/PortProton_1.0" && sh PortProton_1.0 -rus
 #mkinitcpio.conf
-#nvidia modules
 #Раскомментируйте на необходимое
+#nvidia modules
 #sudo sed 's/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm btrfs)/g' -i /etc/mkinitcpio.conf
 #mesa
 sudo sed 's/MODULES=()/MODULES=(btrfs)/g' -i /etc/mkinitcpio.conf
