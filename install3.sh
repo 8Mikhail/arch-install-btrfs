@@ -112,7 +112,5 @@ systemctl enable smb
 systemctl enable nmb
 #mkinitcpio
 mkinitcpio -P
-#zsh
-zsh
 #exit
 exit
