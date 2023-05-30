@@ -79,7 +79,7 @@ cp -f arch-install-btrfs/install3.sh /mnt/home/$username/
 #sleep
 sleep $sleep
 #chroot /mnt 
-arch-chroot /mnt sh -c "$(cat install2.sh)" $username $hostname $pass
+arch-chroot /mnt sh -c "$(cat /mnt/home/$username/install2.sh)" $username $hostname $pass
 #sleep
 sleep $sleep
 
