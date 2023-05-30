@@ -56,6 +56,8 @@ echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
 sed 's/#ParallelDownloads = 5/ParallelDownloads = 10/' -i /etc/pacman.conf
 #pacman.conf
 echo -e '[multilib]\nInclude = /etc/pacman.d/mirrorlist\n' >> /etc/pacman.conf
+#pacman —Sy
+pacman -Sy
 #install core lqx
 pacman -S linux-lqx linux-lqx-headers --noconfirm
 #blkid
@@ -69,8 +71,6 @@ echo '"Boot with minimal options" "ro root='$disk_root'"' >> /boot/refind_linux.
 #refind
 refind-install
 #mkinitcpio
-mkinitcpio IP
-#pacman -Sy 
-pacman -Sy
+mkinitcpio -P
 #exit
 exit
