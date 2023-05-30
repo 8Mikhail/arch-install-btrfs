@@ -40,21 +40,27 @@ sudo cpupower frequency-set -g performance
 #services
 sudo systemctl enable cpupower
 #pikaur
-git clone https://aur.archlinux.org/pikaur.git
-#pikaur
-cd pikaur
-#pikaur
-makepkg -fsri --noconfirm
-#cd
-cd
+function aur { 
+         cd /tmp 
+         git clone https://aur.archlinux.org/pikaur.git 
+         chown -R $username:users /tmp/pikaur 
+         chown -R $username:users /tmp/pikaur/PKGBUILD 
+         cd pikaur 
+         ( echo $pass ) | -u $username makepkg -si --noconfirm 
+         cd .. 
+         rm -rf pikaur 
+ }
 #aur apps
-pikaur -S $libva $opencl pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
+aur $libva $opencl pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
 #services
 sudo systemctl enable xow
 #portproton
 wget -c "https://github.com/Castro-Fidel/PortWINE/raw/master/portwine_install_script/PortProton_1.0" && sh PortProton_1.0 -rus
 #mkinitcpio.conf
+#nvidia modules
 sudo sed 's/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm btrfs)/g' -i /etc/mkinitcpio.conf
+#mesa
+sudo sed 's/MODULES=()/MODULES=(btrfs)/g' -i /etc/mkinitcpio.conf
 #root
 ( 
      echo $pass 
