@@ -8,10 +8,10 @@ echo '--------------------------------------------------'
 username=hacker
 hostname=world
 pass=1811
-disk_root=/dev/nvme0n1p4
-disk_boot=/dev/nvme0n1p1
+disk_root=/dev/nvme0n1p5
+disk_boot=/dev/nvme0n1p4
 #Раскомментируйте необходимое:
-disk_swap=/dev/nvme0n1p5
+disk_swap=/dev/nvme0n1p6
 #ucode=amd-ucode
 ucode=intel-ucode
 sleep=5
