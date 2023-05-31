@@ -4,7 +4,7 @@ echo '--------------------------------------------------'
 echo '|                 Config Install                  |'
 echo '--------------------------------------------------'
 
-#Замените на своё
+#Замените на своё:
 username=hacker
 hostname=world
 pass=1811
@@ -14,97 +14,97 @@ disk_boot=/dev/nvme0n1p1
 echo '--------------------------------------------------'
 echo '|Install Arch Linux '$username'@'hostname'       |'
 echo '--------------------------------------------------'
-#services
+#services:
 systemctl enable iwd.service
-#services
+#services:
 systemctl enable NetworkManager.service
-#mount
+#mount boot:
 mount $disk_boot /boot/efi
-#hostname
+#hostname:
 echo $hostname >> /etc/hostname
-#locale eng
+#locale eng:
 sed -i 's/#en_US.U/en_US.U/g' /etc/locale.gen
-#locale rus
+#locale rus:
 sed -i 's/#ru_RU.U/ru_RU.U/g' /etc/locale.gen
-#locale generation
+#locale generation:
 locale-gen
-#locale conf
+#locale conf:
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
-#locale conf
+#locale conf:
 echo LANG=ru_RU.UTF-8 >> /etc/locale.conf
-#passed root
+#passwd root:
 (
     echo $pass
     echo $pass
 ) | passwd
-#add user
+#add user:
 useradd -m -g users -G wheel,video -s /usr/bin/zsh $username
-#passwd user
+#passwd user:
 (
     echo $pass
     echo $pass
 ) | passwd $username
-#sudoers
+#sudoers:
 sed 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' -i /etc/sudoers
-#chown
+#chown:
 chown -R $username:users /home/$username/
-#install core lqx
-pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
-#install core lqx
-pacman-key --lsign-key 9AE4078033F8024D
-#install core lqx
-echo '[liquorix]' >> /etc/pacman.conf
-#install core lqx
-echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
-#pacman.conf
+#pacman.conf:
 sed 's/#ParallelDownloads = 5/ParallelDownloads = 10/' -i /etc/pacman.conf
-#pacman.conf
+#pacman.conf:
 echo -e '[multilib]\nInclude = /etc/pacman.d/mirrorlist\n' >> /etc/pacman.conf
-#pacman —Sy
+#install core lqx:
+pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
+#install core lqx:
+pacman-key --lsign-key 9AE4078033F8024D
+#install core lqx:
+echo '[liquorix]' >> /etc/pacman.conf
+#install core lqx:
+echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
+#pacman —Sy:
 pacman -Sy
-#install core lqx
+#install core lqx:
 pacman -S linux-lqx linux-lqx-headers --noconfirm
-#blkid
+#blkid:
 uuid=$(blkid -s UUID -o value $disk_root)
-#refind
+#refind:
 echo '"Boot to standard options" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1"' >> /boot/refind_linux.conf
-#refind
+#refind:
 echo '"Boot to single-user mode" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1 single"' >> /boot/refind_linux.conf
-#refind
+#refind:
 echo '"Boot with minimal options ro root='$disk_root'"' >> /boot/refind_linux.conf
-#refind
+#refind:
 refind-install
-#mkinitcpio
+#mkinitcpio:
 mkinitcpio -P
-#install zsh
+#install zsh:
 echo '--------------------------------------------------'
 echo '|            Установка оболочки zsh              |'
 echo '--------------------------------------------------'
-#zsh
+#zsh:
 pacman -S zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions grml-zsh-config --noconfirm
-#zsh chsh
+#zsh chsh:
 ( 
 	echo $pass
  ) |chsh -s /usr/bin/zsh
- #zsh chsh root
+ #zsh chsh root:
 ( 
 	echo $pass
  ) |sudo chsh -s /usr/bin/zsh
-#zsh
+#zsh:
 cd /root/
 wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshrc'
-#zsh
+#zsh:
 cd /home/$username/
 wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshrc'
-#chown
+#chown:
 chown -R $username:users .zshrc
-#sleep
+#sleep:
 sleep $sleep
 echo '--------------------------------------------------------------------------------'
 echo '|                    Установка пользовательских приложений                     |'
 echo '--------------------------------------------------------------------------------'
 sh /home/$username/install3.sh $username $pass
-#Scc
+#Scc:
 pacman -Scc --noconfirm
-#exit
+#exit:
 exit

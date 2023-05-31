@@ -4,18 +4,18 @@ echo '--------------------------------------------------'
 echo '|                Config Install                  |'
 echo '--------------------------------------------------'
 
-#Измените на своё
+#Измените на своё:
 username=hacker
 hostname=world
 pass=1811
 disk_root=/dev/nvme0n1p4
 disk_boot=/dev/nvme0n1p1
-#Раскомментируйте необходимое
+#Раскомментируйте необходимое:
 #ucode=amd-ucode
 ucode=intel-ucode
 sleep=5
 
-#setfont cyr-sun16 
+#setfont cyr-sun16:
 setfont cyr-sun16
 echo '--------------------------------------------------'
 echo '|              Install Arch Linux                |'
@@ -27,66 +27,66 @@ echo '|             Форматирование диска               |'
 echo '--------------------------------------------------'
 echo 'Format disk '$disk_root'@'$disk_boot'				'
 echo '--------------------------------------------------'
-#sleep
+#sleep:
 sleep $sleep
 
-#formating disk
+#formating disk:
 mkfs.btrfs -f $disk_root
-#formating disk
+#formating disk:
 mkfs.vfat $disk_boot
-#mount mnt
+#mount mnt:
 mount $disk_root /mnt
-#cd /mnt
+#cd /mnt:
 cd /mnt
-#su cr
+#su cr:
 btrfs su cr @
-#su cr
+#su cr:
 btrfs su cr @home
-#su cr
+#su cr:
 btrfs su cr @var
-#cd
+#cd:
 cd
-#umount
+#umount:
 umount /mnt
 #sleep
 sleep $sleep
-#sleep
+#sleep:
 echo '--------------------------------------------------'
 echo '|             Монтирование разделов               |'
 echo '--------------------------------------------------'
-#mount disk
+#mount disk:
 mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@ $disk_root /mnt
-#mkdir folders
+#mkdir folders:
 mkdir /mnt/{var,home,boot}
-#mkdir /boot/efi
+#mkdir /boot/efi:
 mkdir /mnt/boot/efi
-#mount disk
+#mount disk:
 mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@home $disk_root /mnt/home
-#mount disk
+#mount disk:
 mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@var $disk_root /mnt/var
-#sleep
+#sleep:
 sleep $sleep
-#sleep
+#sleep:
 echo '--------------------------------------------------'
 echo '|             Установка Arch Linux                |'
 echo '--------------------------------------------------'
-#install arch
-pacstrap -K /mnt base base-devel linux-firmware refind efibootmgr iwd networkmanager micro htop btrfs-progs git $ucode --noconfirm
-#fstab generation
+#install arch:
+pacstrap -K /mnt base base-devel linux-firmware refind efibootmgr iwd networkmanager micro htop btrfs-progs git ntfs-3g $ucode --noconfirm
+#fstab generation:
 genfstab -U -p /mnt >> /mnt/etc/fstab
-#chroot
+#chroot:
 mkdir -p /mnt/home/$username/
-#chroot
+#chroot:
 cp -f arch-install-btrfs/install.sh /mnt/home/$username/
 #chroot
 cp -f arch-install-btrfs/install2.sh /mnt/home/$username/
 #chroot
 cp -f arch-install-btrfs/install3.sh /mnt/home/$username/
-#sleep
+#sleep:
 sleep $sleep
-#chroot /mnt 
+#chroot /mnt:
 arch-chroot /mnt sh -c "$(cat /mnt/home/$username/install2.sh)" $username $hostname $pass
-#sleep
+#sleep:
 sleep $sleep
 echo '--------------------------------------------------'
 echo '|                 Перезагрузка                   |'
