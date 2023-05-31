@@ -8,8 +8,8 @@ echo '--------------------------------------------------'
 username=hacker
 hostname=world
 pass=1811
-disk_root=/dev/nvme0n1p4
-disk_boot=/dev/nvme0n1p1
+disk_root=/dev/nvme0n1p5
+disk_boot=/dev/nvme0n1p4
 
 echo '--------------------------------------------------'
 echo '|Install Arch Linux '$username'@'hostname'       |'
