@@ -11,7 +11,7 @@ pass=1811
 disk_root=/dev/nvme0n1p4
 disk_boot=/dev/nvme0n1p1
 #Раскомментируйте необходимое:
-#disk_swap=/dev/nvme0n1p5
+disk_swap=/dev/nvme0n1p5
 #ucode=amd-ucode
 ucode=intel-ucode
 sleep=5
@@ -37,8 +37,8 @@ mkfs.btrfs -f $disk_root
 mkfs.vfat $disk_boot
 #раскомментируйте необходимое:
 #formatting disk:
-#mkswap $disk_swap
-#swapon $disk_swap
+mkswap $disk_swap
+swapon $disk_swap
 #mount mnt:
 mount $disk_root /mnt
 #cd /mnt:
