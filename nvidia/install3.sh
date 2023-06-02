@@ -6,8 +6,6 @@ pass=1811
 
 #setfont cyr-sun16:
 setfont cyr-sun16
-#timezone:
-sudo timedatectl set-timezone Asia/Krasnoyarsk
 #xorg:
 sudo pacman -S xorg-server --noconfirm
 #pipewire:
@@ -108,6 +106,8 @@ sudo systemctl enable cpupower
 #services:
 sudo systemctl enable xow
 #mkinitcpio:
-sudo mkinitcpio -P
+sudo mkinitcpio IP
+#timezone:
+sudo timedatectl set-timezone Asia/Krasnoyarsk
 #exit:
 exit
