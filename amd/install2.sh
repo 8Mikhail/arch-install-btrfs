@@ -47,7 +47,7 @@ useradd -m -g users -G wheel,video -s /usr/bin/zsh $username
 #sudoers:
 sed 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' -i /etc/sudoers
 #chown:
-chown -R $username:users /home/$username/
+sudo chown -R $username:users /home/$username/
 #pacman.conf:
 sed 's/#ParallelDownloads = 5/ParallelDownloads = 10/' -i /etc/pacman.conf
 #pacman.conf:
