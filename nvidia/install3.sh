@@ -9,6 +9,8 @@ setfont cyr-sun16
 ( echo $pass ) | sudo $username
 #xorg:
 sudo pacman -S xorg-server --noconfirm
+#enviroment
+sudo pacman -S gnu-free-fonts --noconfirm
 #pipewire:
 sudo pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack --noconfirm
 #KDE and apps:
