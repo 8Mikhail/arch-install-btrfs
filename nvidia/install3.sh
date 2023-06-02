@@ -112,6 +112,8 @@ systemctl enable sddm
 systemctl enable bluetooth
 #services:
 systemctl enable cpupower
+#services:
+systemctl enable xow
 #timezone:
 timedatectl set-timezone Asia/Krasnoyarsk
 #mkinitcpio:
