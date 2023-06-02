@@ -38,7 +38,7 @@ echo LANG=ru_RU.UTF-8 >> /etc/locale.conf
     echo $pass
 ) | passwd
 #add user:
-useradd -m -g users -G wheel,video -s /usr/bin/zsh $username
+useradd -m -g users -G wheel,video -s /bin/bash $username
 #passwd user:
 (
     echo $pass
@@ -88,9 +88,9 @@ echo '--------------------------------------------------'
 #zsh:
 pacman -S zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions grml-zsh-config --noconfirm
 #zsh chsh:
-chsh -s /usr/bin/zsh
+chsh -s /bin/zsh
 #zsh chsh root:
-chsh -s /usr/bin/zsh/$username
+chsh -s /bin/zsh $username
 #zsh:
 cd /root/
 wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshrc'

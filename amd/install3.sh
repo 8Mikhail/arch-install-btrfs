@@ -8,10 +8,12 @@ pass=1811
 setfont cyr-sun16
 #xorg:
 pacman -S xorg-server --noconfirm
+#enviroment
+pacman -S gnu-free-fonts --noconfirm
 #KDE and apps:
 pacman -S plasma plasma-desktop --noconfirm
 #pipewire:
-pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack --noconfirm
+#pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack --noconfirm
 #KDE drivers and apps:
 pacman -S dolphin dolphin-plugins konsole kdenlive gwenview elisa mpv kcalc kcalendarcore kdeconnect plasma-wayland-session kwalletmanager libva-utils vdpauinfo vulkan-icd-loader lib32-vulkan-icd-loader vulkan-headers vulkan-validation-layers vulkan-tools qt-gstreamer kdenetwork-filesharing spectacle --noconfirm
 #раскомментируйте необходимое:
