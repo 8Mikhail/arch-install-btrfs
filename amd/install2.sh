@@ -102,7 +102,7 @@ wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshr
 cd /home/$username/
 wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshrc'
 #chown:
-chown -R $username:users .zshrc
+sudo chown -R $username:users .zshrc
 #sleep:
 sleep $sleep
 echo '--------------------------------------------------------------------------------'
