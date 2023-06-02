@@ -8,8 +8,6 @@ pass=1811
 setfont cyr-sun16
 #xorg:
 sudo pacman -S xorg-server --noconfirm
-#timezone:
-sudo timedatectl set-timezone Asia/Krasnoyarsk
 #pipewire:
 sudo pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack --noconfirm
 #KDE and apps:
@@ -114,6 +112,8 @@ systemctl enable sddm
 systemctl enable bluetooth
 #services:
 systemctl enable cpupower
+#timezone:
+timedatectl set-timezone Asia/Krasnoyarsk
 #mkinitcpio:
 mkinitcpio -P
 #exit:
