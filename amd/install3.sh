@@ -30,21 +30,20 @@ sudo pacman -S cpupower --noconfirm
 #setting cpupower:
 sudo cpupower frequency-set -g performance
 #pikaur:
-function aur { 
-         cd /tmp 
-         git clone https://aur.archlinux.org/pikaur.git
-         chown -R $username:users /tmp/pikaur
-         chown -R $username:users /tmp/pikaur/PKGBUILD
-         cd pikaur
-         ( echo $pass ) | -u $username makepkg -fsri --noconfirm
-         cd .. 
-         rm -rf pikaur 
- }
+#cd /home/$username/:
+cd /home/$username/
+git clone https://aur.archlinux.org/pikaur.git
+#cd /home/$username/pikaur:
+cd /home/$username/pikaur
+#install pikaur
+( echo $pass ) |makepkg -fsri --noconfirm
+#cd:
+cd
 #раскомментируйте необходимое:
 #aur apps and libva-nvidia-driver:
-#aur libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
+#pikaur -S libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
 #aur apps and opencl-amd:
-aur opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
+pikaur -S opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
 #portproton:
 #cd /home/$username/:
 cd /home/$username/
