@@ -7,28 +7,28 @@ pass=1811
 #setfont cyr-sun16:
 setfont cyr-sun16
 #xorg:
-sudo pacman -S xorg-server --noconfirm
+pacman -S xorg-server --noconfirm
 #KDE and apps:
-sudo pacman -S plasma plasma-desktop --noconfirm
+pacman -S plasma plasma-desktop --noconfirm
 #pipewire:
-sudo pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack --noconfirm
+pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack --noconfirm
 #KDE drivers and apps:
-sudo pacman -S dolphin dolphin-plugins konsole kdenlive gwenview elisa mpv kcalc kcalendarcore kdeconnect plasma-wayland-session kwalletmanager libva-utils vdpauinfo vulkan-icd-loader lib32-vulkan-icd-loader vulkan-headers vulkan-validation-layers vulkan-tools qt-gstreamer kdenetwork-filesharing spectacle --noconfirm
+pacman -S dolphin dolphin-plugins konsole kdenlive gwenview elisa mpv kcalc kcalendarcore kdeconnect plasma-wayland-session kwalletmanager libva-utils vdpauinfo vulkan-icd-loader lib32-vulkan-icd-loader vulkan-headers vulkan-validation-layers vulkan-tools qt-gstreamer kdenetwork-filesharing spectacle --noconfirm
 #раскомментируйте необходимое:
 #apps and nvidia and cuda and libva-vdpau-driver (если не планируете установку libva-nvidia-driver-git):
-#sudo pacman -S nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils cuda libva-vdpau-driver lib32-libva-vdpau-driver firefox gparted packagekit-qt5 engrampa caja p7zip unace brotli rpm-tools cpio latte-dock steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility icoutils wget bubblewrap zstd cabextract bc tar openssl gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr vulkan-driver lsof lib32-freetype2 lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-vulkan-driver lib32-gamemode lib32-openssl meson gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers samba cifs-utils extra-cmake-modules plasma-framework gst-libav base-devel mpv python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake --noconfirm
+#pacman -S nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils cuda libva-vdpau-driver lib32-libva-vdpau-driver firefox gparted packagekit-qt5 engrampa caja p7zip unace brotli rpm-tools cpio latte-dock steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility icoutils wget bubblewrap zstd cabextract bc tar openssl gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr vulkan-driver lsof lib32-freetype2 lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-vulkan-driver lib32-gamemode lib32-openssl meson gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers samba cifs-utils extra-cmake-modules plasma-framework gst-libav base-devel mpv python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake --noconfirm
 #apps and nvidia and cuda:
-#sudo pacman is nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils cuda firefox gparted packagekit-qt5 engrampa caja p7zip unace brotli rpm-tools cpio latte-dock steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility icoutils wget bubblewrap zstd cabextract bc tar openssl gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr vulkan-driver lsof lib32-freetype2 lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-vulkan-driver lib32-gamemode lib32-openssl meson gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers samba cifs-utils extra-cmake-modules plasma-framework gst-libav base-devel mpv python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake --noconfirm
+#pacman is nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils cuda firefox gparted packagekit-qt5 engrampa caja p7zip unace brotli rpm-tools cpio latte-dock steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility icoutils wget bubblewrap zstd cabextract bc tar openssl gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr vulkan-driver lsof lib32-freetype2 lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-vulkan-driver lib32-gamemode lib32-openssl meson gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers samba cifs-utils extra-cmake-modules plasma-framework gst-libav base-devel mpv python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake --noconfirm
 #apps and mesa and libva-mesa-driver:
-sudo pacman -S libva-mesa-driver lib32-libva-mesa-driver mesa firefox gparted packagekit-qt5 engrampa caja p7zip unace brotli rpm-tools cpio latte-dock steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility icoutils wget bubblewrap zstd cabextract bc tar openssl gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr vulkan-driver lsof lib32-freetype2 lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-vulkan-driver lib32-gamemode lib32-openssl meson gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers samba cifs-utils extra-cmake-modules plasma-framework gst-libav base-devel mpv python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake --noconfirm
+pacman -S libva-mesa-driver lib32-libva-mesa-driver mesa firefox gparted packagekit-qt5 engrampa caja p7zip unace brotli rpm-tools cpio latte-dock steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility icoutils wget bubblewrap zstd cabextract bc tar openssl gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr vulkan-driver lsof lib32-freetype2 lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-vulkan-driver lib32-gamemode lib32-openssl meson gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers samba cifs-utils extra-cmake-modules plasma-framework gst-libav base-devel mpv python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake --noconfirm
 #sddm:
-sudo pacman -S sddm --noconfirm
+pacman -S sddm --noconfirm
 #bluetooth:
-sudo pacman -S bluez bluez-utils --noconfirm
+pacman -S bluez bluez-utils --noconfirm
 #install cpupower:
-sudo pacman -S cpupower --noconfirm
+pacman -S cpupower --noconfirm
 #setting cpupower:
-sudo cpupower frequency-set -g performance
+cpupower frequency-set -g performance
 #pikaur:
 #cd /home/$username/:
 cd /home/$username/
@@ -54,59 +54,59 @@ cd
 #mkinitcpio.conf:
 #Раскомментируйте на необходимое:
 #nvidia modules:
-#sudo sed 's/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm btrfs)/g' -i /etc/mkinitcpio.conf
+#sed 's/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm btrfs)/g' -i /etc/mkinitcpio.conf
 #mesa:
-sudo sed 's/MODULES=()/MODULES=(btrfs)/g' -i /etc/mkinitcpio.conf
+sed 's/MODULES=()/MODULES=(btrfs)/g' -i /etc/mkinitcpio.conf
 #enviroment:
-sudo echo 'NVD_BACKEND=direct' >> /etc/enviroment
+echo 'NVD_BACKEND=direct' >> /etc/enviroment
 #enviroment:
-sudo echo 'MOZ_DISABLE_RDD_SANDBOX=1' >> /etc/enviroment
+echo 'MOZ_DISABLE_RDD_SANDBOX=1' >> /etc/enviroment
 #enviroment nvidia:
-#sudo echo 'LIBVA_DRIVER_NAME=nvidia' >> /etc/enviroment
+#echo 'LIBVA_DRIVER_NAME=nvidia' >> /etc/enviroment
 #enviroment:
-sudo echo 'EDITOR=micro' >> /etc/enviroment
+echo 'EDITOR=micro' >> /etc/enviroment
 #enviroment:
-sudo echo 'EGL_PLATFORM=wayland' >> /etc/enviroment
+echo 'EGL_PLATFORM=wayland' >> /etc/enviroment
 #enviroment:
-sudo echo 'MOZ_ENABLE_WAYLAND=1 firefox' >> /etc/enviroment
+echo 'MOZ_ENABLE_WAYLAND=1 firefox' >> /etc/enviroment
 #samba:
-sudo echo '[global]' >> /etc/samba/smb.conf
+echo '[global]' >> /etc/samba/smb.conf
 #samba:
-sudo echo 'usershare path = /var/lib/samba/usershares' >> /etc/samba/smb.conf
+echo 'usershare path = /var/lib/samba/usershares' >> /etc/samba/smb.conf
 #samba:
-sudo echo 'usershare max shares = 100' >> /etc/samba/smb.conf
+echo 'usershare max shares = 100' >> /etc/samba/smb.conf
 #samba:
-sudo echo 'usershare allow guests = yes' >> /etc/samba/smb.conf
+echo 'usershare allow guests = yes' >> /etc/samba/smb.conf
 #samba:
-sudo echo 'usershare owner only = yes' >> /etc/samba/smb.conf
+echo 'usershare owner only = yes' >> /etc/samba/smb.conf
 #samba:
 ( echo $pass 
-  echo $pass ) | sudo smbpasswd -a $username
+  echo $pass ) | smbpasswd -a $username
 #samba:
-sudo usermod -g users -G wheel,video $username
+usermod -g users -G wheel,video $username
 #samba:
-sudo mkdir /var/lib/samba/usershares
+mkdir /var/lib/samba/usershares
 #samba:
-sudo chown root:users /var/lib/samba/usershares
+chown root:users /var/lib/samba/usershares
 #samba:
-sudo chmod 1770 /var/lib/samba/usershares
+chmod 1770 /var/lib/samba/usershares
 #samba:
 sudo gpasswd users -a $username
 #samba:
-sudo systemctl enable smb
+systemctl enable smb
 #samba:
-sudo systemctl enable nmb
+systemctl enable nmb
 #services:
-sudo systemctl enable sddm
+systemctl enable sddm
 #services:
-sudo systemctl enable bluetooth
+systemctl enable bluetooth
 #services:
-sudo systemctl enable cpupower
+systemctl enable cpupower
 #services:
-sudo systemctl enable xow
+systemctl enable xow
 #mkinitcpio:
-sudo mkinitcpio IP
+mkinitcpio IP
 #timezone:
-sudo timedatectl set-timezone Asia/Krasnoyarsk
+timedatectl set-timezone Asia/Krasnoyarsk
 #exit:
 exit
