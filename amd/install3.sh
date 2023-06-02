@@ -45,8 +45,6 @@ function aur {
 #aur libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
 #aur apps and opencl-amd:
 aur opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
-#services:
-sudo systemctl enable xow
 #portproton:
 #cd /home/$username/:
 cd /home/$username/
@@ -112,6 +110,8 @@ systemctl enable sddm
 systemctl enable bluetooth
 #services:
 systemctl enable cpupower
+#services:
+systemctl enable xow
 #timezone:
 timedatectl set-timezone Asia/Krasnoyarsk
 #mkinitcpio:
