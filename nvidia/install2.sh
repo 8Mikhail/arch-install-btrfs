@@ -47,7 +47,7 @@ useradd -m -g users -G wheel,video -s /usr/bin/zsh $username
 #sudoers:
 sed 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' -i /etc/sudoers
 #chown:
-sudo chown -R $username:users /home/$username/
+chown -R $username:users /home/$username/
 #pacman.conf:
 sed 's/#ParallelDownloads = 5/ParallelDownloads = 10/' -i /etc/pacman.conf
 #pacman.conf:
@@ -88,13 +88,9 @@ echo '--------------------------------------------------'
 #zsh:
 pacman -S zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions grml-zsh-config --noconfirm
 #zsh chsh:
-( 
-	echo $pass
- ) |chsh -s /usr/bin/zsh
- #zsh chsh root:
-( 
-	echo $pass
- ) |sudo chsh -s /usr/bin/zsh
+chsh -s /usr/bin/zsh
+#zsh chsh root:
+sudo chsh -s /usr/bin/zsh
 #zsh:
 cd /root/
 wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshrc'
@@ -102,7 +98,7 @@ wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshr
 cd /home/$username/
 wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshrc'
 #chown:
-sudo chown -R $username:users .zshrc
+chown -R $username:users .zshrc
 #sleep:
 sleep $sleep
 echo '--------------------------------------------------------------------------------'
