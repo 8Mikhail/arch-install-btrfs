@@ -90,7 +90,7 @@ pacman -S zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions grml-z
 #zsh chsh:
 chsh -s /usr/bin/zsh
 #zsh chsh root:
-sudo chsh -s /usr/bin/zsh
+chsh -s /usr/bin/zsh/$username
 #zsh:
 cd /root/
 wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshrc'
