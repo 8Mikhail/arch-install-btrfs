@@ -6,6 +6,7 @@ pass=1811
 
 #setfont cyr-sun16:
 setfont cyr-sun16
+#username login
 ( echo $pass ) | sudo $username
 #xorg:
 sudo pacman -S xorg-server --noconfirm
