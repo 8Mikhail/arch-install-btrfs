@@ -1,12 +1,21 @@
 #!/bin/bash
 
 #Измените на своё:
-username=hacker
+username=neo
 pass=1811
 
+function aur {
+	cd /tmp
+	git clone https://aur.archlinux.org/pikaur.git
+	chown -R $username:users /tmp/pikaur
+	chown -R $username:users /tmp/pikaur/PKGBUILD
+	cd pikaur
+	( echo $pass ) | -u $username makepkg -si --noconfirm
+	cd ..
+	rm -rf pikaur
+}
 #setfont cyr-sun16:
 setfont cyr-sun16
-( echo $pass ) | sudo $username
 #xorg:
 sudo pacman -S xorg-server --noconfirm
 #enviroment
@@ -32,22 +41,15 @@ sudo pacman -S bluez bluez-utils --noconfirm
 sudo pacman -S cpupower --noconfirm
 #setting cpupower:
 sudo cpupower frequency-set -g performance
-#pikaur:
-#cd /home/$username/:
-cd /home/$username/
-#pikaur
-git clone https://aur.archlinux.org/pikaur.git
-#cd /home/$username/pikaur:
-cd /home/$username/pikaur
 #install pikaur:
-makepkg -fsri --noconfirm
-#cd
-cd
+aur auracle-git
+#install pikaur:
+aur pikaur
 #раскомментируйте необходимое:
 #aur apps and libva-nvidia-driver:
-pikaur -S libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
+aur libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
 #aur apps and opencl-amd:
-#pikaur -S opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
+#aur opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
 #portproton:
 #cd /home/$username/:
 cd /home/$username/
@@ -87,7 +89,7 @@ sudo echo 'usershare owner only = yes' >> /etc/samba/smb.conf
 (  echo $pass 
    echo $pass ) | sudo smbpasswd -a $username
 #samba:
-sudo usermod -g users -G wheel,video $username
+sudo usermod -g users -G wheel $username
 #samba:
 sudo mkdir /var/lib/samba/usershares
 #samba:
@@ -109,7 +111,7 @@ sudo systemctl enable cpupower
 #services:
 sudo systemctl enable xow
 #mkinitcpio:
-sudo mkinitcpio IP
+sudo mkinitcpio -P
 #timezone:
 sudo timedatectl set-timezone Asia/Krasnoyarsk
 #exit:

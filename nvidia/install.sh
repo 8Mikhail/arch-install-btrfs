@@ -5,13 +5,13 @@ echo '|                Config Install                  |'
 echo '--------------------------------------------------'
 
 #Измените на своё:
-username=hacker
-hostname=world
+username=neo
+hostname=matrix
 pass=1811
-disk_root=/dev/nvme0n1p6
-disk_boot=/dev/nvme0n1p5
+disk_root=/dev/nvme0n1p5
+disk_boot=/dev/nvme0n1p4
 #Раскомментируйте необходимое:
-disk_swap=/dev/nvme0n1p7
+disk_swap=/dev/nvme0n1p6
 #ucode=amd-ucode
 ucode=intel-ucode
 sleep=5
@@ -83,21 +83,13 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 mkdir -p /mnt/home/$username/
 #раскомментируйте необходимое:
 #chroot nvidia:
-cp -f arch-install-btrfs/nvidia/install.sh /mnt/home/$username/
-#chroot nvidia:
-cp -f arch-install-btrfs/nvidia/install2.sh /mnt/home/$username/
-#chroot nvidia:
 cp -f arch-install-btrfs/nvidia/install3.sh /mnt/home/$username/
-#chroot mesa:
-#cp -f arch-install-btrfs/amd/install.sh /mnt/home/$username/
-#chroot mesa:
-#cp -f arch-install-btrfs/amd/install2.sh /mnt/home/$username/
 #chroot mesa:
 #cp -f arch-install-btrfs/amd/install3.sh /mnt/home/$username/
 #sleep:
 sleep $sleep
 #chroot /mnt:
-arch-chroot /mnt sh -c "$(cat /mnt/home/$username/install2.sh)" $username $hostname $pass
+arch-chroot /mnt sh -c "$(cat install2.sh)" $username $hostname $pass
 #sleep:
 sleep $sleep
 echo '--------------------------------------------------'

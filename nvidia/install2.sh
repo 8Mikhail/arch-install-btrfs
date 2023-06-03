@@ -5,11 +5,11 @@ echo '|                 Config Install                  |'
 echo '--------------------------------------------------'
 
 #Замените на своё:
-username=hacker
-hostname=world
+username=neo
+hostname=matrix
 pass=1811
-disk_root=/dev/nvme0n1p6
-disk_boot=/dev/nvme0n1p5
+disk_root=/dev/nvme0n1p5
+disk_boot=/dev/nvme0n1p4
 
 echo '--------------------------------------------------'
 echo '|Install Arch Linux '$username'@'hostname'       |'
@@ -38,18 +38,14 @@ echo LANG=ru_RU.UTF-8 >> /etc/locale.conf
     echo $pass
 ) | passwd
 #add user:
-useradd -m -g users -G wheel,video -s /usr/bin/zsh $username
+useradd -G wheel -s /bin/bash -m $username
 #passwd user:
 (
     echo $pass
     echo $pass
 ) | passwd $username
-#sudoers:
-sed 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' -i /etc/sudoers
-#chown:
-chown -R $username:users /home/$username/
 #pacman.conf:
-sed 's/#ParallelDownloads = 5/ParallelDownloads = 10/' -i /etc/pacman.conf
+sed 's/#ParallelDownloads = 5/ParallelDownloads = 5/' -i /etc/pacman.conf
 #pacman.conf:
 echo -e '[multilib]\nInclude = /etc/pacman.d/mirrorlist\n' >> /etc/pacman.conf
 #install core lqx:
@@ -64,6 +60,13 @@ echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
 pacman -Sy
 #install core lqx:
 pacman -S linux-lqx linux-lqx-headers --noconfirm
+#sudoers:
+#без запроса пароля:
+sed 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' -i /etc/sudoers
+#с запросом пароля:
+#sed 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' -i /etc/sudoers
+#chown:
+chown -R $username:users /home/$username/
 #blkid:
 uuid=$(blkid -s UUID -o value $disk_root)
 #раскомментируйте необходимое:
@@ -79,8 +82,6 @@ echo '"Boot to single-user mode" "rw root=UUID='$uuid' rootflags=subvol=@ loglev
 echo '"Boot with minimal options ro root='$disk_root'"' >> /boot/refind_linux.conf
 #refind:
 refind-install
-#mkinitcpio:
-mkinitcpio -P
 #install zsh:
 echo '--------------------------------------------------'
 echo '|            Установка оболочки zsh              |'
@@ -88,9 +89,9 @@ echo '--------------------------------------------------'
 #zsh:
 pacman -S zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions grml-zsh-config --noconfirm
 #zsh chsh:
-chsh -s /usr/bin/zsh
+chsh -s /bin/zsh
 #zsh chsh root:
-chsh -s /usr/bin/zsh/$username
+chsh -s /bin/zsh/$username
 #zsh:
 cd /root/
 wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshrc'
