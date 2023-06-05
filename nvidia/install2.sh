@@ -82,6 +82,8 @@ echo '"Boot to single-user mode" "rw root=UUID='$uuid' rootflags=subvol=@ loglev
 echo '"Boot with minimal options ro root='$disk_root'"' >> /boot/refind_linux.conf
 #refind:
 refind-install
+#user
+su $username
 #install zsh:
 echo '--------------------------------------------------'
 echo '|            Установка оболочки zsh              |'
