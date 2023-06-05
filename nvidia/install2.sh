@@ -62,7 +62,7 @@ pacman -Sy
 pacman -S linux-lqx linux-lqx-headers --noconfirm
 #sudoers:
 #без запроса пароля:
-sed 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' -i /etc/sudoers
+sed 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' -i /etc/sudoers
 #с запросом пароля:
 #sed 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' -i /etc/sudoers
 #chown:
