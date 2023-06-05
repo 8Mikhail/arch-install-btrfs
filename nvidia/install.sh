@@ -23,6 +23,10 @@ echo '|              Install Arch Linux                |'
 echo '--------------------------------------------------'
 echo 'Install Arch Linux '$username'@'$hostname'		'
 echo '--------------------------------------------------'
+
+echo "Server = http://mirror.yandex.ru/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+pacman -Sy sed --noconfirm
+
 echo '--------------------------------------------------'
 echo '|             Форматирование диска               |'
 echo '--------------------------------------------------'
@@ -31,6 +35,11 @@ echo '--------------------------------------------------'
 #sleep:
 sleep $sleep
 
+echo '--------------------------------------------------'
+echo '|             Разметка диска                      |'
+echo '--------------------------------------------------'
+#sleep:
+sleep $sleep
 #formating disk:
 mkfs.btrfs -f $disk_root
 #formating disk:
@@ -83,17 +92,17 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 mkdir -p /mnt/home/$username/
 #раскомментируйте необходимое:
 #chroot nvidia:
-cp -f arch-install-btrfs/nvidia/install.sh /mnt/home/$username/
-cp -f arch-install-btrfs/nvidia/install2.sh /mnt/home/$username/
+cp -f arch-install-btrfs/nvidia/install /mnt/home/$username/
+cp -f arch-install-btrfs/nvidia/install2 /mnt/home/$username/
 cp -f arch-install-btrfs/nvidia/install3.sh /mnt/home/$username/
 #chroot mesa:
-#cp -f arch-install-btrfs/amd/install.sh /mnt/home/$username/
-#cp -f arch-install-btrfs/amd/install2.sh /mnt/home/$username/
+#cp -f arch-install-btrfs/amd/install /mnt/home/$username/
+#cp -f arch-install-btrfs/amd/install2 /mnt/home/$username/
 #cp -f arch-install-btrfs/amd/install3.sh /mnt/home/$username/
 #sleep:
 sleep $sleep
 #chroot /mnt:
-arch-chroot /mnt sh -c "$(cat /mnt/home/$username/install2.sh)" $username $hostname $pass
+arch-chroot /mnt sh -c "$(cat /mnt/home/$username/install2)" $username $hostname $pass
 #sleep:
 sleep $sleep
 echo '--------------------------------------------------'
