@@ -42,14 +42,14 @@ sudo pacman -S cpupower --noconfirm
 #setting cpupower:
 sudo cpupower frequency-set -g performance
 #install pikaur:
-aur auracle-git
+aur -S auracle-git
 #install pikaur:
-aur pikaur
+aur -S pikaur
 #раскомментируйте необходимое:
 #aur apps and libva-nvidia-driver:
-#aur libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
+#aur -S libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
 #aur apps and opencl-amd:
-aur opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
+aur -S opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
 #portproton:
 #cd /home/$username/:
 cd /home/$username/
