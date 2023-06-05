@@ -31,7 +31,7 @@ sudo pacman -S bluez bluez-utils --noconfirm
 #install cpupower:
 sudo pacman -S cpupower --noconfirm
 #setting cpupower:
-cpupower frequency-set -g performance
+sudo cpupower frequency-set -g performance
 #install pikaur:
 git clone https://aur.archlinux.org/pikaur.git
 #install pikaur:
