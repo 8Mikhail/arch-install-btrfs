@@ -4,7 +4,6 @@
 username=neo
 pass=1811
 
-echo "$username:$pass" | arch-chroot /mnt chpasswd
 function aur {
 	cd /tmp
 	git clone https://aur.archlinux.org/pikaur.git
