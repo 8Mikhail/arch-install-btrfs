@@ -38,7 +38,7 @@ echo LANG=ru_RU.UTF-8 >> /etc/locale.conf
     echo $pass
 ) | passwd
 #add user:
-useradd -G wheel -s /bin/bash -m $username
+useradd -m -g users -G wheel,video -s /bin/bash $username
 #passwd user:
 (
     echo $pass
