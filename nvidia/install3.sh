@@ -90,7 +90,7 @@ sudo echo 'usershare owner only = yes' >> /etc/samba/smb.conf
 (  echo $pass 
    echo $pass ) | sudo smbpasswd -a $username
 #samba:
-sudo usermod -m users -G wheel,video $username
+sudo usermod -m users -G wheel $username
 #samba:
 sudo mkdir /var/lib/samba/usershares
 #samba:
