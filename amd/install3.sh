@@ -113,6 +113,6 @@ sudo systemctl enable xow
 #mkinitcpio:
 mkinitcpio -P
 #timezone:
-timedatectl set-timezone Asia/Krasnoyarsk
+sudo timedatectl set-timezone Asia/Krasnoyarsk
 #exit:
 exit
