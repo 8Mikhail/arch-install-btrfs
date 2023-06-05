@@ -109,6 +109,6 @@ sleep $sleep
 echo '--------------------------------------------------------------------------------'
 echo '|                    Установка пользовательских приложений                     |'
 echo '--------------------------------------------------------------------------------'
-echo "$username:$pass" | arch-chroot /mnt chpasswd && sh "$(cat /home/$username/install3.sh)" $username $pass
+echo "$username:$pass" | chpasswd && sh "$(cat /home/$username/install3.sh)" $username $pass
 #exit:
 exit
