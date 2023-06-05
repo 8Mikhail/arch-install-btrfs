@@ -84,7 +84,7 @@ mkdir -p /mnt/home/$username/
 #раскомментируйте необходимое:
 #chroot nvidia:
 #cp -f arch-install-btrfs/nvidia/install3.sh /mnt/home/$username/
-cp -f arch-install-btrfs/nvidia/install2.sh /mnt/home/$username/
+#cp -f arch-install-btrfs/nvidia/install2.sh /mnt/home/$username/
 #chroot mesa:
 cp -f arch-install-btrfs/amd/install3.sh /mnt/home/$username/
 cp -f arch-install-btrfs/amd/install2.sh /mnt/home/$username/
