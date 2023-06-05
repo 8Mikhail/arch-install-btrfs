@@ -98,7 +98,6 @@ pacman -Sy zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions grml-
 chsh -s /usr/bin/zsh
 #zsh chsh user:
 chsh -s /usr/bin/zsh/$username
-zsh --noconfirm
 #zsh:
 cd /
 wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshrc'
