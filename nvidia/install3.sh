@@ -32,12 +32,15 @@ sudo pacman -S bluez bluez-utils --noconfirm
 sudo pacman -S cpupower --noconfirm
 #setting cpupower:
 sudo cpupower frequency-set -g performance
+#cd:
+cd /home/$username/
 #install pikaur:
 git clone https://aur.archlinux.org/pikaur.git
 #install pikaur:
 cd pikaur
 #pikaur:
-makepkg -fsri --noconfirm
+(  echo $pass 
+   echo $pass ) | makepkg -fsri --noconfirm
 #cd:
 cd
 #раскомментируйте необходимое:
@@ -45,8 +48,12 @@ cd
 pikaur -S libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
 #aur apps and opencl-amd:
 #pikaur -S opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
+#cd:
+cd /home/$username/
 #install portproton:
-wget -c "https://github.com/Castro-Fidel/PortWINE/raw/master/portwine_install_script/PortProton_1.0" && sh PortProton_1.0 -rus
+wget -c "https://github.com/Castro-Fidel/PortWINE/raw/master/portwine_install_script/PortProton_1.0" && sh PortProton_1.0 rush
+#cd:
+cd
 #mkinitcpio.conf:
 #Раскомментируйте на необходимое:
 #nvidia modules:
@@ -79,7 +86,7 @@ sudo echo 'usershare owner only = yes' >> /etc/samba/smb.conf
 (  echo $pass 
    echo $pass ) | sudo smbpasswd -a $username
 #samba:
-sudo usermod -m users -G wheel $username
+sudo usermod -g users -G wheel $username
 #samba:
 sudo mkdir /var/lib/samba/usershares
 #samba:
@@ -102,7 +109,5 @@ sudo systemctl enable cpupower
 sudo systemctl enable xow
 #mkinitcpio:
 sudo mkinitcpio -P
-#timezone:
-sudo timedatectl set-timezone Asia/Krasnoyarsk
 #exit:
 exit
