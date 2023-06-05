@@ -4,17 +4,6 @@
 username=neo
 pass=1811
 
-function aur {
-	cd /tmp
-	git clone https://aur.archlinux.org/pikaur.git
-	chown -R $username:users /tmp/pikaur
-	chown -R $username:users /tmp/pikaur/PKGBUILD
-	cd pikaur
-	( echo $pass ) | -u $username makepkg -si --noconfirm
-	cd ..
-	rm -rf pikaur
-}
-
 echo '--------------------------------------------------'
 echo '|              Установка драйверов               |'
 echo '--------------------------------------------------'
