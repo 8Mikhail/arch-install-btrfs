@@ -14,6 +14,10 @@ disk_boot=/dev/nvme0n1p4
 echo '--------------------------------------------------'
 echo '|Install Arch Linux '$username'@'hostname'       |'
 echo '--------------------------------------------------'
+pacman -Sy sed wget --noconfirm
+loadkeys ru
+setfont cyr-sun16
+echo -e 'KEYMAP=ru\nFONT=cyr-sun16\n' >> /etc/vconsole.conf
 #services:
 systemctl enable iwd.service
 #services:
@@ -38,7 +42,7 @@ echo LANG=ru_RU.UTF-8 >> /etc/locale.conf
     echo $pass
 ) | passwd
 #add user:
-useradd -m -g users -G wheel,video -s /bin/bash $username
+useradd -G wheel -s /bin/bash -m $username
 #passwd user:
 (
     echo $pass
@@ -89,7 +93,7 @@ echo '--------------------------------------------------'
 echo '|            Установка оболочки zsh              |'
 echo '--------------------------------------------------'
 #zsh:
-pacman -S zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions grml-zsh-config --noconfirm
+pacman -Sy zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions grml-zsh-config --noconfirm
 #zsh chsh:
 chsh -s /bin/zsh
 #zsh chsh root:
