@@ -8,10 +8,10 @@ echo '--------------------------------------------------'
 username=hacker
 hostname=world
 pass=1811
-disk_root=/dev/nvme0n1p6
-disk_boot=/dev/nvme0n1p5
+disk_root=/dev/nvme0n1p4
+disk_boot=/dev/nvme0n1p1
 #Раскомментируйте необходимое:
-disk_swap=/dev/nvme0n1p7
+disk_swap=/dev/nvme0n1p5
 #ucode=amd-ucode
 ucode=intel-ucode
 sleep=5
@@ -23,6 +23,10 @@ echo '|              Install Arch Linux                |'
 echo '--------------------------------------------------'
 echo 'Install Arch Linux '$username'@'$hostname'		'
 echo '--------------------------------------------------'
+
+echo "Server = http://mirror.yandex.ru/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+pacman -Sy sed --noconfirm
+
 echo '--------------------------------------------------'
 echo '|             Форматирование диска               |'
 echo '--------------------------------------------------'
@@ -31,10 +35,15 @@ echo '--------------------------------------------------'
 #sleep:
 sleep $sleep
 
+echo '--------------------------------------------------'
+echo '|             Разметка диска                      |'
+echo '--------------------------------------------------'
+#sleep:
+sleep $sleep
 #formating disk:
 mkfs.btrfs -f $disk_root
 #formating disk:
-mkfs.vfat $disk_boot
+#mkfs.vfat $disk_boot
 #раскомментируйте необходимое:
 #formating disk:
 mkswap $disk_swap
@@ -87,13 +96,13 @@ mkdir -p /mnt/home/$username/
 #cp -f arch-install-btrfs/nvidia/install3.sh /mnt/home/$username/
 #cp -f arch-install-btrfs/nvidia/install2.sh /mnt/home/$username/
 #chroot mesa:
-cp -f arch-install-btrfs/amd/install.sh /mnt/home/$username/
-cp -f arch-install-btrfs/amd/install3.sh /mnt/home/$username/
-cp -f arch-install-btrfs/amd/install2.sh /mnt/home/$username/
+cp -f arch-install-btrfs/amd/install /mnt/home/$username/
+cp -f arch-install-btrfs/amd/install2/mnt/home/$username/
+cp -f arch-install-btrfs/amd/install3sh /mnt/home/$username/
 #sleep:
 sleep $sleep
 #chroot /mnt:
-arch-chroot /mnt sh -c "$(cat /mnt/home/$username/install2.sh)" $username $hostname $pass
+arch-chroot /mnt sh -c "$(cat /mnt/home/$username/install2)" $username $hostname $pass
 #sleep:
 sleep $sleep
 echo '--------------------------------------------------'
