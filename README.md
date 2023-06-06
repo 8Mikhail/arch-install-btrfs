@@ -32,7 +32,7 @@
 
 7)Сначала введите " chmod +x ./arch-install-btrfs/nvidia/install "
 
-Введите " chmod +x ./arch-install-btrfs/nvidia/install2 "
+Введите " chmod +x ./arch-install-btrfs/nvidia/install2"
 
 Введите " chmod +x ./arch-install-btrfs/nvidia/install3.sh "
 
