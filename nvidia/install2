@@ -94,10 +94,10 @@ echo '|            Установка оболочки zsh              |'
 echo '--------------------------------------------------'
 #zsh:
 pacman -Sy zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions grml-zsh-config --noconfirm
-#zsh chsh root:
-chsh -s /usr/bin/zsh
 #zsh chsh user:
 chsh -s /usr/bin/zsh/$username
+#zsh chsh root:
+chsh -s /usr/bin/zsh
 #zsh:
 cd /
 wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshrc'
