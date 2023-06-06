@@ -24,17 +24,17 @@
 
 6)Сначала введите " chmod +x ./arch-install-btrfs/amd/install "
 
-Сначала введите " chmod +x ./arch-install-btrfs/amd/install2 "
+Введите " chmod +x ./arch-install-btrfs/amd/install2 "
 
-Сначала введите " chmod +x ./arch-install-btrfs/amd/install3.sh "
+Введите " chmod +x ./arch-install-btrfs/amd/install3.sh "
 
 Затем введите " ./arch-install-btrfs/amd/install " если нужно установить для AMD;
 
 7)Сначала введите " chmod +x ./arch-install-btrfs/nvidia/install "
 
-Сначала введите " chmod +x ./arch-install-btrfs/nvidia/install2 "
+Введите " chmod +x ./arch-install-btrfs/nvidia/install2 "
 
-Сначала введите " chmod +x ./arch-install-btrfs/nvidia/install3.sh "
+Введите " chmod +x ./arch-install-btrfs/nvidia/install3.sh "
 
 Затем введите " ./arch-install-btrfs/nvidia/install " если нужно установить для Nvidia;
 
