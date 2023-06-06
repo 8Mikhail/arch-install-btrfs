@@ -4,26 +4,17 @@
 username=hacker
 pass=1811
 
-function aur {
-	cd /tmp
-	git clone https://aur.archlinux.org/pikaur.git
-	chown -R $username:users /tmp/pikaur
-	chown -R $username:users /tmp/pikaur/PKGBUILD
-	cd pikaur
-	( echo $pass ) | -u $username makepkg -si --noconfirm
-	cd ..
-	rm -rf pikaur
-}
-#setfont cyr-sun16:
-setfont cyr-sun16
+echo '--------------------------------------------------'
+echo '|              Установка драйверов               |'
+echo '--------------------------------------------------'
 #xorg:
 sudo pacman -S xorg-server --noconfirm
 #enviroment
 sudo pacman -S gnu-free-fonts --noconfirm
-#KDE and apps:
-sudo pacman -S plasma plasma-desktop --noconfirm
 #pipewire:
 sudo pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack --noconfirm
+#KDE and apps:
+sudo pacman -S plasma plasma-desktop breeze breeze-gtk kde-gtk-config --noconfirm
 #KDE drivers and apps:
 sudo pacman -S dolphin dolphin-plugins konsole kdenlive gwenview elisa mpv kcalc kcalendarcore kdeconnect plasma-wayland-session kwalletmanager libva-utils vdpauinfo vulkan-icd-loader lib32-vulkan-icd-loader vulkan-headers vulkan-validation-layers vulkan-tools qt-gstreamer kdenetwork-filesharing spectacle --noconfirm
 #раскомментируйте необходимое:
@@ -41,20 +32,26 @@ sudo pacman -S bluez bluez-utils --noconfirm
 sudo pacman -S cpupower --noconfirm
 #setting cpupower:
 sudo cpupower frequency-set -g performance
+#cd:
+cd /home/$username/
 #install pikaur:
-aur -S auracle-git
+git clone https://aur.archlinux.org/pikaur.git
 #install pikaur:
-aur -S pikaur
+cd pikaur
+#pikaur:
+(  echo $pass 
+   echo $pass ) | makepkg -fsri --noconfirm
+#cd:
+cd
 #раскомментируйте необходимое:
 #aur apps and libva-nvidia-driver:
-#aur -S libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
+#pikaur -S libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
 #aur apps and opencl-amd:
-aur -S opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
-#portproton:
-#cd /home/$username/:
+pikaur -S opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git --noconfirm
+#cd:
 cd /home/$username/
 #install portproton:
-wget -c "https://github.com/Castro-Fidel/PortWINE/raw/master/portwine_install_script/PortProton_1.0" && sh PortProton_1.0 -rus
+wget -c "https://github.com/Castro-Fidel/PortWINE/raw/master/portwine_install_script/PortProton_1.0" && sh PortProton_1.0 rus
 #cd:
 cd
 #mkinitcpio.conf:
@@ -89,7 +86,7 @@ sudo echo 'usershare owner only = yes' >> /etc/samba/smb.conf
 ( echo $pass 
   echo $pass ) | sudo smbpasswd -a $username
 #samba:
-sudo usermod -m -g users -G wheel,video $username
+sudo usermod -g users -G wheel $username
 #samba:
 sudo mkdir /var/lib/samba/usershares
 #samba:
@@ -111,8 +108,6 @@ sudo systemctl enable cpupower
 #services:
 sudo systemctl enable xow
 #mkinitcpio:
-mkinitcpio -P
-#timezone:
-sudo timedatectl set-timezone Asia/Krasnoyarsk
+sudo mkinitcpio -P
 #exit:
 exit
