@@ -28,9 +28,9 @@ echo "Server = http://mirror.yandex.ru/archlinux/\$repo/os/\$arch" > /etc/pacman
 pacman -Sy sed --noconfirm
 
 echo '--------------------------------------------------'
-echo '|             Форматирование диска               |'
+echo '|             Подготовка диска                   |'
 echo '--------------------------------------------------'
-echo 'Format disk '$disk_root'@'$disk_boot'				'
+echo '            '$disk_root'@'$disk_boot'				      '
 echo '--------------------------------------------------'
 #sleep:
 sleep $sleep
@@ -92,9 +92,9 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 mkdir -p /mnt/home/$username/
 #раскомментируйте необходимое:
 #chroot nvidia:
-#cp -f arch-install-btrfs/nvidia/install.sh /mnt/home/$username/
+#cp -f arch-install-btrfs/nvidia/install /mnt/home/$username/
+#cp -f arch-install-btrfs/nvidia/install2 /mnt/home/$username/
 #cp -f arch-install-btrfs/nvidia/install3.sh /mnt/home/$username/
-#cp -f arch-install-btrfs/nvidia/install2.sh /mnt/home/$username/
 #chroot mesa:
 cp -f arch-install-btrfs/amd/install /mnt/home/$username/
 cp -f arch-install-btrfs/amd/install2/mnt/home/$username/
