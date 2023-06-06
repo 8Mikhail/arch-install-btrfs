@@ -8,12 +8,18 @@ echo '--------------------------------------------------'
 username=hacker
 hostname=world
 pass=1811
-disk_root=/dev/nvme0n1p6
-disk_boot=/dev/nvme0n1p5
+disk_root=/dev/nvme0n1p4
+disk_boot=/dev/nvme0n1p1
 
 echo '--------------------------------------------------'
 echo '|Install Arch Linux '$username'@'hostname'       |'
 echo '--------------------------------------------------'
+pacman -Sy sed wget --noconfirm
+loadkeys ru
+setfont cyr-sun16
+echo -e 'KEYMAP=ru\nFONT=cyr-sun16\n' >> /etc/vconsole.conf
+#timezone:
+timedatectl set-timezone Asia/Krasnoyarsk
 #services:
 systemctl enable iwd.service
 #services:
@@ -38,7 +44,7 @@ echo LANG=ru_RU.UTF-8 >> /etc/locale.conf
     echo $pass
 ) | passwd
 #add user:
-useradd -m -g users -G wheel,video -s /bin/bash $username
+useradd -G wheel -s /bin/bash -m $username
 #passwd user:
 (
     echo $pass
@@ -88,10 +94,10 @@ echo '|            Установка оболочки zsh              |'
 echo '--------------------------------------------------'
 #zsh:
 pacman -S zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions grml-zsh-config --noconfirm
-#zsh chsh:
-chsh -s /bin/zsh
-#zsh chsh root:
+#zsh chsh user:
 chsh -s /bin/zsh $username
+#zsh chsh root:
+chsh -s /bin/zsh
 #zsh:
 cd /root/
 wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshrc'
@@ -105,6 +111,6 @@ sleep $sleep
 echo '--------------------------------------------------------------------------------'
 echo '|                    Установка пользовательских приложений                     |'
 echo '--------------------------------------------------------------------------------'
-sh /home/$username/install3.sh $username $pass
+echo "$username:$pass" | chpasswd && sh "/home/$username/install3.sh" $username $pass
 #exit:
 exit
