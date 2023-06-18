@@ -88,29 +88,11 @@ echo '"Boot to single-user mode" "rw root=UUID='$uuid' rootflags=subvol=@ loglev
 echo '"Boot with minimal options ro root='$disk_root'"' >> /boot/refind_linux.conf
 #refind:
 refind-install
-#install zsh:
-echo '--------------------------------------------------'
-echo '|            Установка оболочки zsh              |'
-echo '--------------------------------------------------'
-#zsh:
-pacman -Sy zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions grml-zsh-config --noconfirm
-#zsh chsh user:
-chsh -s /usr/bin/zsh/$username
-#zsh chsh root:
-chsh -s /usr/bin/zsh
-#zsh:
-cd /
-wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshrc'
-#zsh:
-cd /home/$username/
-wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshrc'
-#chown:
-chown -R $username:users .zshrc
 #sleep:
-sleep $sleep
-echo '--------------------------------------------------------------------------------'
-echo '|                    Установка пользовательских приложений                     |'
-echo '--------------------------------------------------------------------------------'
-echo "$username:$pass" | chpasswd && sh "/home/$username/install3.sh" $username $pass
+#sleep $sleep
+#echo '--------------------------------------------------------------------------------'
+#echo '|                    Установка пользовательских приложений                     |'
+#echo '--------------------------------------------------------------------------------'
+#echo "$username:$pass" | chpasswd && sh "/home/$username/install3.sh" $username $pass
 #exit:
 exit
