@@ -4,6 +4,26 @@
 username=neo
 pass=1811
 
+#install zsh:
+echo '--------------------------------------------------'
+echo '|            Установка оболочки zsh              |'
+echo '--------------------------------------------------'
+#zsh:
+(
+    echo $pass
+) | sudo pacman -S zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions grml-zsh-config --noconfirm
+#zsh chsh user:
+chsh -s /usr/bin/zsh
+#zsh chsh root:
+(
+    echo $pass
+) | sudo chsh -s /usr/bin/zsh
+#zsh:
+wget 'https://raw.githubusercontent.com/like913/arch-install/master/config/.zshrc'
+#chown:
+(
+    echo $pass
+) | sudo chown -R $username:users .zshrc
 echo '--------------------------------------------------'
 echo '|              Установка драйверов               |'
 echo '--------------------------------------------------'
@@ -32,15 +52,14 @@ sudo pacman -S bluez bluez-utils --noconfirm
 sudo pacman -S cpupower --noconfirm
 #setting cpupower:
 sudo cpupower frequency-set -g performance
-#cd:
-cd /home/$username/
 #install pikaur:
 git clone https://aur.archlinux.org/pikaur.git
 #install pikaur:
 cd pikaur
 #pikaur:
-(  echo $pass 
-   echo $pass ) | makepkg -fsri --noconfirm
+(
+    echo $pass
+) | makepkg -fsri --noconfirm
 #cd:
 cd
 #раскомментируйте необходимое:
@@ -48,12 +67,8 @@ cd
 pikaur -S libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome ventoy-bin onlyoffice-bin xow-git --noconfirm
 #aur apps and opencl-amd:
 #pikaur -S opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome ventoy-bin onlyoffice-bin xow-git --noconfirm
-#cd:
-cd /home/$username/
 #install portproton:
 wget -c "https://github.com/Castro-Fidel/PortWINE/raw/master/portwine_install_script/PortProton_1.0" && sh PortProton_1.0 rus
-#cd:
-cd
 #mkinitcpio.conf:
 #Раскомментируйте на необходимое:
 #nvidia modules:
