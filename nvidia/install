@@ -112,13 +112,16 @@ cp -f arch-install-btrfs/nvidia/install3.sh /mnt/home/$username/
 #cp -f arch-install-btrfs/amd/install2 /mnt/home/$username/
 #cp -f arch-install-btrfs/amd/install3.sh /mnt/home/$username/
 #sleep:
-sleep $sleep
+#sleep $sleep
+#раскомментируйте необходимое:
 #chroot /mnt:
-arch-chroot /mnt /bin/bash -c "$(cat /mnt/home/$username/install2)" $username $hostname $pass
+#arch-chroot /mnt /bin/bash -c "$(cat /mnt/home/$username/install2)" $username $hostname $pass
+#переход в chroot и окончание скрипта:
+arch-chroot /mnt
 #sleep:
-sleep $sleep
-echo '--------------------------------------------------'
-echo '|                 Перезагрузка                   |'
-echo '--------------------------------------------------'
-umount -R /mnt/
-reboot
+#sleep $sleep
+#echo '--------------------------------------------------'
+#echo '|                 Перезагрузка                   |'
+#echo '--------------------------------------------------'
+#umount -R /mnt/
+#reboot
