@@ -8,7 +8,7 @@ echo '--------------------------------------------------'
 username=neo
 hostname=matrix
 pass=1811
-disk_root=/dev/nvme0n1p5
+disk_root=/dev/nvme0n1p6
 disk_boot=/dev/nvme0n1p1
 
 echo '--------------------------------------------------'
@@ -19,7 +19,7 @@ loadkeys ru
 setfont cyr-sun16
 echo -e 'KEYMAP=ru\nFONT=cyr-sun16\n' >> /etc/vconsole.conf
 #timezone:
-timedatectl set-timezone Asia/Krasnoyarsk
+#timedatectl set-timezone Asia/Krasnoyarsk
 #services:
 systemctl enable iwd.service
 #services:
