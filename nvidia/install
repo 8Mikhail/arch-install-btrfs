@@ -58,12 +58,6 @@ btrfs su cr @
 btrfs su cr @home
 #su cr:
 btrfs su cr @var
-#su cr:
-btrfs su cr @log
-#su cr:
-btrfs su cr @pkg
-#su cr:
-btrfs su cr @.snapshots
 #cd:
 cd
 #umount:
@@ -77,19 +71,13 @@ echo '--------------------------------------------------'
 #mount disk:
 mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@ $disk_root /mnt
 #mkdir folders:
-mkdir /mnt/{var,var/log,var/cache/pacman/pkg,.snapshots,home,boot}
+mkdir /mnt/{var,home,boot}
 #mkdir /boot/efi:
 mkdir /mnt/boot/efi
 #mount disk:
 mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@home $disk_root /mnt/home
 #mount disk:
 mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@var $disk_root /mnt/var
-#mount disk:
-mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@log $disk_root /mnt/var/log
-#mount disk:
-mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@pkg $disk_root /mnt/var/cache/pacman/pkg
-#mount disk:
-mount -o noatime,compress=zstd:3,space_cache=v2,discard=async,subvol=@.snapshots $disk_root /mnt/.snapshots
 #sleep:
 sleep $sleep
 #sleep:
