@@ -22,7 +22,8 @@
 
 5)Введите " git clone https://github.com/8Mikhail/arch-install-btrfs.git ";
 
-6)Сначала введите " chmod +x ./arch-install-btrfs/amd/install "
+6)Для AMD:
+Сначала введите " chmod +x ./arch-install-btrfs/amd/install "
 
 Введите " chmod +x ./arch-install-btrfs/amd/install2 "
 
@@ -30,7 +31,8 @@
 
 Затем введите " ./arch-install-btrfs/amd/install " если нужно установить для AMD;
 
-7)Сначала введите " chmod +x ./arch-install-btrfs/nvidia/install "
+7)Для Nvidia:
+Сначала введите " chmod +x ./arch-install-btrfs/nvidia/install "
 
 Введите " chmod +x ./arch-install-btrfs/nvidia/install2"
 
@@ -38,4 +40,6 @@
 
 Затем введите " ./arch-install-btrfs/nvidia/install " если нужно установить для Nvidia;
 
-8)Ожидаем окончания установки системы.
+8)После перезагрузки логинимся и вводим " sudo sh /home/$username/install3.sh ";
+
+9)Ожидаем окончания установки системы.
