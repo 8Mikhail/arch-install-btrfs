@@ -33,38 +33,6 @@ echo '--------------------------------------------------'
 echo '            '$disk_root'@'$disk_boot'				      '
 echo '--------------------------------------------------'
 #sleep:
-sleep $sleep
-
-echo '--------------------------------------------------'
-echo '|             Разметка диска                     |'
-echo '--------------------------------------------------'
-#sleep:
-sleep $sleep
-#formating disk:
-mkfs.btrfs -f $disk_root
-#formating disk:
-#mkfs.vfat $disk_boot
-#раскомментируйте необходимое:
-#formatting disk:
-mkswap $disk_swap
-swapon $disk_swap
-#mount mnt:
-mount $disk_root /mnt
-#cd /mnt:
-cd /mnt
-#su cr:
-btrfs su cr @
-#su cr:
-btrfs su cr @home
-#su cr:
-btrfs su cr @var
-#cd:
-cd
-#umount:
-umount /mnt
-#sleep
-sleep $sleep
-#sleep:
 echo '--------------------------------------------------'
 echo '|             Монтирование разделов               |'
 echo '--------------------------------------------------'
@@ -81,15 +49,6 @@ mount -o rw,noatime,compress=lzo,recovery,autodefrag,space_cache=v2,ssd,discard=
 #sleep:
 sleep $sleep
 #sleep:
-echo '--------------------------------------------------'
-echo '|             Установка Arch Linux                |'
-echo '--------------------------------------------------'
-#install arch:
-pacstrap -K /mnt base base-devel linux-firmware refind efibootmgr iwd networkmanager micro htop btrfs-progs git ntfs-3g $ucode --noconfirm
-#fstab generation:
-genfstab -U -p /mnt >> /mnt/etc/fstab
-#chroot:
-mkdir -p /mnt/home/$username/
 #раскомментируйте необходимое:
 #chroot nvidia:
 cp -f arch-install-btrfs/nvidia/install /mnt/home/$username/
