@@ -1,0 +1,39 @@
+#!/bin/bash
+
+echo '--------------------------------------------------'
+echo '|                 Config Install                  |'
+echo '--------------------------------------------------'
+
+#Замените на своё:
+username=neo
+hostname=matrix
+pass=1811
+disk_root=/dev/nvme0n1p5
+disk_boot=/dev/nvme0n1p1
+
+echo '--------------------------------------------------'
+echo '|Install Arch Linux '$username'@'hostname'       |'
+echo '--------------------------------------------------'
+#blkid:
+uuid=$(blkid -s UUID -o value $disk_root)
+#раскомментируйте необходимое:
+#refind nvidia:
+echo '"Boot to standard options" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1"' >> /boot/refind_linux.conf
+#refind nvidia:
+echo '"Boot to single-user mode" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1 single"' >> /boot/refind_linux.conf
+#refind mesa:
+#echo '"Boot to standard options" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs"' >> /boot/refind_linux.conf
+#refind mesa:
+#echo '"Boot to single-user mode" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs single"' >> /boot/refind_linux.conf
+#refind:
+echo '"Boot with minimal options ro root='$disk_root'"' >> /boot/refind_linux.conf
+#refind:
+refind-install
+#sleep:
+#sleep $sleep
+#echo '--------------------------------------------------------------------------------'
+#echo '|                    Установка пользовательских приложений                     |'
+#echo '--------------------------------------------------------------------------------'
+#echo "$username:$pass" | chpasswd && sh "/home/$username/install3.sh" $username $pass
+#exit:
+exit
