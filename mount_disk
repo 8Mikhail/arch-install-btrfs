@@ -53,7 +53,7 @@ cp -f arch-install-btrfs/mount_disk2 /mnt/home/$username/
 #sleep $sleep
 #раскомментируйте необходимое:
 #chroot /mnt:
-arch-chroot /mnt /bin/bash -c "$(cat /mnt/home/$username/install2)" $username $hostname $pass
+arch-chroot /mnt /bin/bash -c "$(cat /mnt/home/$username/mount_disk2)" $username $hostname $pass
 #переход в chroot и окончание скрипта:
 #arch-chroot /mnt
 #sleep:
