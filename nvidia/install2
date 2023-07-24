@@ -14,6 +14,65 @@ disk_boot=/dev/nvme0n1p1
 echo '--------------------------------------------------'
 echo '|Install Arch Linux '$username'@'hostname'       |'
 echo '--------------------------------------------------'
+pacman -Sy sed wget --noconfirm
+loadkeys ru
+setfont cyr-sun16
+echo -e 'KEYMAP=ru\nFONT=cyr-sun16\n' >> /etc/vconsole.conf
+#timezone:
+#timedatectl set-timezone Asia/Krasnoyarsk
+#services:
+systemctl enable iwd.service
+#services:
+systemctl enable NetworkManager.service
+#mount boot:
+mount $disk_boot /boot/efi
+#hostname:
+echo $hostname >> /etc/hostname
+#locale eng:
+sed -i 's/#en_US.U/en_US.U/g' /etc/locale.gen
+#locale rus:
+sed -i 's/#ru_RU.U/ru_RU.U/g' /etc/locale.gen
+#locale generation:
+locale-gen
+#locale conf:
+echo LANG=en_US.UTF-8 >> /etc/locale.conf
+#locale conf:
+echo LANG=ru_RU.UTF-8 >> /etc/locale.conf
+#passwd root:
+(
+    echo $pass
+    echo $pass
+) | passwd
+#add user:
+useradd -G wheel -s /bin/bash -m $username
+#passwd user:
+(
+    echo $pass
+    echo $pass
+) | passwd $username
+#pacman.conf:
+sed 's/#ParallelDownloads = 5/ParallelDownloads = 5/' -i /etc/pacman.conf
+#pacman.conf:
+echo -e '[multilib]\nInclude = /etc/pacman.d/mirrorlist\n' >> /etc/pacman.conf
+#install core lqx:
+pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
+#install core lqx:
+pacman-key --lsign-key 9AE4078033F8024D
+#install core lqx:
+echo '[liquorix]' >> /etc/pacman.conf
+#install core lqx:
+echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
+#pacman —Sy:
+pacman -Sy
+#install core lqx:
+pacman -S linux-lqx linux-lqx-headers --noconfirm
+#sudoers:
+#без запроса пароля:
+#sed 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' -i /etc/sudoers
+#с запросом пароля:
+sed 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' -i /etc/sudoers
+#chown:
+chown -R $username:users /home/$username/
 #blkid:
 uuid=$(blkid -s UUID -o value $disk_root)
 #раскомментируйте необходимое:
