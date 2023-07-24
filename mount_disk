@@ -47,13 +47,8 @@ sleep $sleep
 #sleep:
 #раскомментируйте необходимое:
 #chroot nvidia:
-cp -f arch-install-btrfs/nvidia/install /mnt/home/$username/
-cp -f arch-install-btrfs/nvidia/install2 /mnt/home/$username/
-cp -f arch-install-btrfs/nvidia/install3.sh /mnt/home/$username/
-#chroot mesa:
-#cp -f arch-install-btrfs/amd/install /mnt/home/$username/
-#cp -f arch-install-btrfs/amd/install2 /mnt/home/$username/
-#cp -f arch-install-btrfs/amd/install3.sh /mnt/home/$username/
+cp -f arch-install-btrfs/mount_disk /mnt/home/$username/
+cp -f arch-install-btrfs/mount_disk2 /mnt/home/$username/
 #sleep:
 #sleep $sleep
 #раскомментируйте необходимое:
