@@ -48,9 +48,9 @@ cd pikaur
 cd
 #раскомментируйте необходимое:
 #aur apps and libva-nvidia-driver:
-#pikaur -S libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git rate-mirrors-bin --noconfirm
+#pikaur -S libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin rate-mirrors-bin xpadneo-dkms --noconfirm
 #aur apps and opencl-amd:
-pikaur -S opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin xow-git rate-mirrors-bin --noconfirm
+pikaur -S opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin rate-mirrors-bin xpadneo-dkms --noconfirm
 #cd:
 cd /home/$username/
 #install portproton:
