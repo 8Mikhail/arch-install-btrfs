@@ -5,11 +5,11 @@ echo '|                 Config Install                  |'
 echo '--------------------------------------------------'
 
 #Замените на своё:
-username=hacker
-hostname=world
-pass=1811
-disk_root=/dev/nvme0n1p5
-disk_boot=/dev/nvme0n1p1
+username=zakhar
+hostname=computer
+pass=0402
+disk_root=/dev/sda2
+disk_boot=/dev/sda1
 
 echo '--------------------------------------------------'
 echo '|Install Arch Linux '$username'@'hostname'       |'
