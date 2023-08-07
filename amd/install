@@ -5,13 +5,13 @@ echo '|                Config Install                  |'
 echo '--------------------------------------------------'
 
 #Измените на своё:
-username=zakhar
-hostname=computer
-pass=0402
-disk_root=/dev/sda2
-disk_boot=/dev/sda1
+username=neo
+hostname=matrix
+pass=1811
+disk_root=/dev/nvme0n1p5
+disk_boot=/dev/nvme0n1p1
 #Раскомментируйте необходимое:
-disk_swap=/dev/sda3
+disk_swap=/dev/nvme0n1p6
 #ucode=amd-ucode
 ucode=intel-ucode
 sleep=5
