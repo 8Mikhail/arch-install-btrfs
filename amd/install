@@ -69,15 +69,15 @@ echo '--------------------------------------------------'
 echo '|             Монтирование разделов               |'
 echo '--------------------------------------------------'
 #mount disk:
-mount -o rw,fsck,noatime,discard,compress=zstd,ssd,space_cache,autodefrag,errors=remount-ro,subvol=@ $disk_root /mnt
+mount -o noatime,discard=async,compress=zstd,ssd,space_cache=v2,autodefrag,subvol=@ $disk_root /mnt
 #mkdir folders:
 mkdir /mnt/{var,home,boot}
 #mkdir /boot/efi:
 mkdir /mnt/boot/efi
 #mount disk:
-mount -o rw,fsck,noatime,discard,compress=zstd,ssd,space_cache,autodefrag,errors=remount-ro,subvol=@home $disk_root /mnt/home
+mount -o noatime,discard=async,compress=zstd,ssd,space_cache=v2,autodefrag,subvol=@home $disk_root /mnt/home
 #mount disk:
-mount -o rw,fsck,noatime,discard,compress=zstd,ssd,space_cache,autodefrag,errors=remount-ro,subvol=@var $disk_root /mnt/var
+mount -o noatime,discard=async,compress=zstd,ssd,space_cache=v2,autodefrag,subvol=@var $disk_root /mnt/var
 #sleep:
 sleep $sleep
 #sleep:
