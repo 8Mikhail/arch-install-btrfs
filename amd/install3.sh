@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #Измените на своё:
-username=hacker
-pass=1811
+username=zakhar
+pass=0402
 amd=mesa lib32-mesa libva-mesa-driver lib32-libva-mesa-driver
 nvidia=nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils cuda libva-vdpau-driver lib32-libva-vdpau-driver
 nvidia_no_vdpau_nvidia=nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils cuda
