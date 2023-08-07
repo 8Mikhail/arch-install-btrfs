@@ -43,7 +43,7 @@ sleep $sleep
 #formating disk:
 mkfs.btrfs -f $disk_root
 #formating disk:
-#mkfs.vfat $disk_boot
+mkfs.vfat $disk_boot
 #раскомментируйте необходимое:
 #formating disk:
 mkswap $disk_swap
