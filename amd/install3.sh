@@ -50,11 +50,11 @@ sudo pacman -S plasma plasma-desktop breeze breeze-gtk kde-gtk-config --noconfir
 sudo pacman -S dolphin dolphin-plugins konsole kdenlive gwenview elisa mpv kcalc kcalendarcore kdeconnect plasma-wayland-session kwalletmanager libva-utils vdpauinfo qt-gstreamer kdenetwork-filesharing spectacle --noconfirm
 #раскомментируйте необходимое:
 #apps and nvidia and cuda and libva-vdpau-driver (если не планируете установку libva-nvidia-driver-git):
-#sudo pacman -S $nvidia firefox gparted packagekit-qt5 engrampa caja p7zip unace brotli rpm-tools cpio latte-dock steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility bash icoutils wget bubblewrap zstd cabextract bc tar openssl gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr vulkan-driver vulkan-icd-loader lsof lib32-freetype2 lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-vulkan-driver lib32-vulkan-icd-loader lib32-gamemode lib32-openssl meson gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers samba cifs-utils extra-cmake-modules plasma-framework gst-libav base-devel mpv python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake --noconfirm
+#sudo pacman -S $nvidia firefox gparted packagekit-qt5 engrampa caja p7zip unace brotli rpm-tools cpio steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility bash icoutils wget bubblewrap zstd cabextract bc tar openssl gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr vulkan-driver vulkan-icd-loader lsof lib32-freetype2 lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-vulkan-driver lib32-vulkan-icd-loader lib32-gamemode lib32-openssl meson gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers samba cifs-utils extra-cmake-modules plasma-framework gst-libav base-devel mpv python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake --noconfirm
 #apps and nvidia and cuda:
-#sudo pacman -S $nvidia_no_vdpau_nvidia firefox gparted packagekit-qt5 engrampa caja p7zip unace brotli rpm-tools cpio latte-dock steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility bash icoutils wget bubblewrap zstd cabextract bc tar openssl gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr vulkan-driver vulkan-icd-loader lsof lib32-freetype2 lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-vulkan-driver lib32-vulkan-icd-loader lib32-gamemode lib32-openssl meson gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers samba cifs-utils extra-cmake-modules plasma-framework gst-libav base-devel mpv python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake --noconfirm
+#sudo pacman -S $nvidia_no_vdpau_nvidia firefox gparted packagekit-qt5 engrampa caja p7zip unace brotli rpm-tools cpio steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility bash icoutils wget bubblewrap zstd cabextract bc tar openssl gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr vulkan-driver vulkan-icd-loader lsof lib32-freetype2 lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-vulkan-driver lib32-vulkan-icd-loader lib32-gamemode lib32-openssl meson gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers samba cifs-utils extra-cmake-modules plasma-framework gst-libav base-devel mpv python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake --noconfirm
 #apps and mesa and libva-mesa-driver:
-sudo pacman -S $amd firefox gparted packagekit-qt5 engrampa caja p7zip unace brotli rpm-tools cpio latte-dock steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility bash icoutils wget bubblewrap zstd cabextract bc tar openssl gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr vulkan-driver vulkan-icd-loader lsof lib32-freetype2 lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-vulkan-driver lib32-vulkan-icd-loader lib32-gamemode lib32-openssl meson gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers samba cifs-utils extra-cmake-modules plasma-framework gst-libav base-devel mpv python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake --noconfirm
+sudo pacman -S $amd firefox gparted packagekit-qt5 engrampa caja p7zip unace brotli rpm-tools cpio steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility bash icoutils wget bubblewrap zstd cabextract bc tar openssl gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr vulkan-driver vulkan-icd-loader lsof lib32-freetype2 lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-vulkan-driver lib32-vulkan-icd-loader lib32-gamemode lib32-openssl meson gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers samba cifs-utils extra-cmake-modules plasma-framework gst-libav base-devel mpv python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake --noconfirm
 #sddm:
 sudo pacman -S sddm --noconfirm
 #bluetooth:
@@ -76,9 +76,9 @@ cd pikaur
 cd
 #раскомментируйте необходимое:
 #aur apps and libva-nvidia-driver:
-#pikaur -S libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin rate-mirrors-bin xpadneo-dkms --noconfirm
+#pikaur -S libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin rate-mirrors-bin xpadneo-dkms latte-dock-git --noconfirm
 #aur apps and opencl-amd:
-pikaur -S opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin rate-mirrors-bin xpadneo-dkms --noconfirm
+pikaur -S opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome yandex-browser speech-dispatcher ttf-font gstreamer-meta ventoy-bin onlyoffice-bin rate-mirrors-bin xpadneo-dkms latte-dock-git --noconfirm
 #cd:
 cd /home/$username/
 #install portproton:
@@ -136,8 +136,6 @@ sudo systemctl enable sddm
 sudo systemctl enable bluetooth
 #services:
 sudo systemctl enable cpupower
-#services:
-sudo systemctl enable xow
 #mkinitcpio:
 sudo mkinitcpio -P
 #exit:
