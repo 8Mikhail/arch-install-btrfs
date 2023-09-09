@@ -19,9 +19,9 @@ pacman -Sy sed wget --noconfirm
 #fonts:
 setfont cyr-sun16
 #echo:
-echo 'KEYMAP=ru' >> /etc/vconsole.conf
+echo KEYMAP=ru >> /etc/vconsole.conf
 #echo:
-echo 'FONT=cyr-sun16' >> /etc/vconsole.conf
+echo FONT=cyr-sun16 >> /etc/vconsole.conf
 #timezone:
 ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localetime
 #services:
@@ -39,9 +39,9 @@ sed -i 's|#ru_RU.UTF-8 UTF|ru_RU.UTF-8 UTF|g' /etc/locale.gen
 #locale generation:
 locale-gen
 #locale conf:
-echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
+echo LANG=en_US.UTF-8 >> /etc/locale.conf
 #locale conf:
-echo 'LANG=ru_RU.UTF-8' >> /etc/locale.conf
+echo LANG=ru_RU.UTF-8 >> /etc/locale.conf
 #passwd root:
 (   
     echo $pass
@@ -57,15 +57,17 @@ useradd -m -g users -G wheel,video -s /bin/bash $username
 #pacman.conf:
 sed 's|#ParallelDownloads = 5|ParallelDownloads = 5|g' -i /etc/pacman.conf
 #pacman.conf:
-sed 's|#[multilib]\#Include = /etc/pacman.d/mirrorlist|[multilib]\Include = /etc/pacman.d/mirrorlist|g' -i /etc/pacman.conf
+sed 's|#[multilib]|[multilib]' -i /etc/pacman.conf
+#pacman.conf:
+sed 's|#Include = /etc/pacman.d/mirrorlist|Include = /etc/pacman.d/mirrorlist|g' -i /etc/pacman.conf
 #install core lqx:
 pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
 #install core lqx:
 pacman-key --lsign-key 9AE4078033F8024D
 #install core lqx:
-echo '[liquorix]' >> /etc/pacman.conf
+echo [liquorix] >> /etc/pacman.conf
 #install core lqx:
-echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
+echo Server = https://liquorix.net/archlinux/$repo/$arch >> /etc/pacman.conf
 #pacman -Sy:
 pacman -Sy
 #install core lqx:
