@@ -51,7 +51,7 @@ useradd -G wheel -s /bin/bash -m $username
     echo $pass
 ) | passwd $username
 #pacman.conf:
-sed 's/#ParallelDownloads = 5/ParallelDownloads = 5/' -i /etc/pacman.conf
+sed 's|#ParallelDownloads = 5|ParallelDownloads = 5|g' -i /etc/pacman.conf
 #pacman.conf:
 sed 's|#[multilib]\#Include = /etc/pacman.d/mirrorlist|[multilib]\Include = /etc/pacman.d/mirrorlist|g' -i /etc/pacman.conf
 #install core lqx:
