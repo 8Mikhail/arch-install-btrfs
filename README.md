@@ -16,13 +16,13 @@
 
 -exit
 
-3)sed 's|SigLevel    = Required DatabaseOptional|#SigLevel    = Required DatabaseOptional|g' /etc/pacman.conf;
+3)sed 's|SigLevel    = Required DatabaseOptional|#SigLevel    = Required DatabaseOptional|g' -i /etc/pacman.conf;
 
 4)Введите " pacman -Sy ";
 
 5)После введения " pacman -Sy " установите git с помощью команды " pacman -S git ";
 
-6)sed 's|#SigLevel    = Required DatabaseOptional|SigLevel    = Required DatabaseOptional|g' /etc/pacman.conf;
+6)sed 's|#SigLevel    = Required DatabaseOptional|SigLevel    = Required DatabaseOptional|g' -i /etc/pacman.conf;
 
 7)Введите " git clone https://github.com/8Mikhail/arch-install-btrfs.git ";
 
