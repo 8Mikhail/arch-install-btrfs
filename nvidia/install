@@ -80,7 +80,7 @@ echo '--------------------------------------------------'
 echo '|             Установка Arch Linux                |'
 echo '--------------------------------------------------'
 #install arch:
-pacstrap -K /mnt base base-devel linux-firmware refind efibootmgr iwd networkmanager micro htop btrfs-progs git ntfs-3g $ucode --noconfirm
+pacstrap -K /mnt base base-devel linux-firmware refind efibootmgr iwd networkmanager micro htop btrfs-progs git ntfs-3g $ucode bash --noconfirm
 #fstab generation:
 genfstab -U -p /mnt >> /mnt/etc/fstab
 #chroot:
