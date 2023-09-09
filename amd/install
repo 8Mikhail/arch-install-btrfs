@@ -77,21 +77,7 @@ echo '--------------------------------------------------'
  #mount disk: 
  mount -o rw,noatime,compress=lzo,recovery,autodefrag,space_cache=v2,ssd,discard=async,subvol=@home $disk_root /mnt/home 
  #mount disk: 
- mount -o rw,noatime,compress=lzo,recovery,autodefrag,space_cache=v2,ssd,discard=async,subvol=@var $disk_root /mnt/var 
- #sleep: 
- sleep $sleep 
- #sleep: 
- #раскомментируйте необходимое: 
- #chroot nvidia: 
- cp -f arch-install-btrfs/mount_disk /mnt/home/$username/ 
- cp -f arch-install-btrfs/mount_disk2 /mnt/home/$username/ 
- #sleep: 
- #sleep $sleep 
- #раскомментируйте необходимое: 
- #chroot /mnt: 
- arch-chroot /mnt /bin/bash -c "$(cat /mnt/home/$username/mount_disk2)" $username $hostname $pass 
- #переход в chroot и окончание скрипта: 
- #arch-chroot /mnt 
+ mount -o rw,noatime,compress=lzo,recovery,autodefrag,space_cache=v2,ssd,discard=async,subvol=@var $disk_root /mnt/var
  #sleep: 
  #sleep $sleep '--------------------------------------------------'
 echo '|             Установка Arch Linux                |'
