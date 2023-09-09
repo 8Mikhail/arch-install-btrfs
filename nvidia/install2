@@ -17,7 +17,7 @@ echo '--------------------------------------------------'
 pacman -Sy sed wget --noconfirm
 loadkeys ru
 setfont cyr-sun16
-echo -e 'KEYMAP=ru\nFONT=cyr-sun16\n' >> /etc/vconsole.conf
+echo 'KEYMAP=ru\FONT=cyr-sun16' >> /etc/vconsole.conf
 #timezone:
 ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localetime
 #services:
@@ -39,7 +39,7 @@ echo LANG=en_US.UTF-8 >> /etc/locale.conf
 #locale conf:
 echo LANG=ru_RU.UTF-8 >> /etc/locale.conf
 #passwd root:
-(
+(   
     echo $pass
     echo $pass
 ) | passwd
