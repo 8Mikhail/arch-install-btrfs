@@ -19,7 +19,7 @@ loadkeys ru
 setfont cyr-sun16
 echo -e 'KEYMAP=ru\nFONT=cyr-sun16\n' >> /etc/vconsole.conf
 #timezone:
-timedatectl set-timezone Asia/Krasnoyarsk
+ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localetime
 #services:
 systemctl enable iwd.service
 #services:
