@@ -13,7 +13,7 @@ disk_root=/dev/nvme0n1p5
 disk_boot=/dev/nvme0n1p1
 sleep=5
 
-$sleep
+sleep $sleep
 echo '--------------------------------------------------'
 echo '|Install Arch Linux '$username'@'hostname'       |'
 echo '--------------------------------------------------'
