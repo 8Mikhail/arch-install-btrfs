@@ -16,13 +16,17 @@
 
 -exit
 
-3)Введите " pacman -Sy ";
+3)sed 's|SigLevel    = Required DatabaseOptional|#SigLevel    = Required DatabaseOptional|g' /etc/pacman.conf;
 
-4)После введения " pacman -Sy " установите git с помощью команды " pacman -S git ";
+4)Введите " pacman -Sy ";
 
-5)Введите " git clone https://github.com/8Mikhail/arch-install-btrfs.git ";
+5)После введения " pacman -Sy " установите git с помощью команды " pacman -S git ";
 
-6)Для AMD:
+6)sed 's|#SigLevel    = Required DatabaseOptional|SigLevel    = Required DatabaseOptional|g' /etc/pacman.conf;
+
+7)Введите " git clone https://github.com/8Mikhail/arch-install-btrfs.git ";
+
+8)Для AMD:
 Сначала введите " chmod +x ./arch-install-btrfs/amd/install "
 
 Введите " chmod +x ./arch-install-btrfs/amd/install2 "
@@ -31,15 +35,15 @@
 
 Затем введите " ./arch-install-btrfs/amd/install " если нужно установить для AMD;
 
-7)Для Nvidia:
+9)Для Nvidia:
 Сначала введите " chmod +x ./arch-install-btrfs/nvidia/install "
 
 Введите " chmod +x ./arch-install-btrfs/nvidia/install2"
 
 Введите " chmod +x ./arch-install-btrfs/nvidia/install3.sh "
 
-Затем введите " ./arch-install-btrfs/nvidia/install " если нужно установить для Nvidia;
+10)Затем введите " ./arch-install-btrfs/nvidia/install " если нужно установить для Nvidia;
 
-8)После перезагрузки логинимся и вводим " sudo sh /home/$username/install3.sh ";
+11)После перезагрузки логинимся и вводим " sudo sh /home/$username/install3.sh ";
 
-9)Ожидаем окончания установки системы.
+12)Ожидаем окончания установки системы.
