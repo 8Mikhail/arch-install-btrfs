@@ -20,11 +20,13 @@ echo '--------------------------------------------------'
 #fonts:
 setfont cyr-sun16
 #echo:
-echo -e 'KEYMAP=ru' >> /etc/vconsole.conf
+echo KEYMAP=ru >> /etc/vconsole.conf
 #echo:
-echo -e 'FONT=cyr-sun16' >> /etc/vconsole.conf
+echo FONT=cyr-sun16 >> /etc/vconsole.conf
 #timezone:
 ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localetime
+#hwclock --systohc:
+hwclock --systohc
 #services:
 systemctl enable iwd.service
 #services:
@@ -49,7 +51,7 @@ echo LANG=ru_RU. >> /etc/locale.conf
     echo $password
 ) | passwd
 #add user:
-useradd -m -g users -G wheel,video -s /bin/bash $username
+useradd -m -G wheel,video -s /bin/bash $username
 #passwd user:
 (
     echo $pass
