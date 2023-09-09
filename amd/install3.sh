@@ -136,6 +136,8 @@ sudo systemctl enable sddm
 sudo systemctl enable bluetooth
 #services:
 sudo systemctl enable cpupower
+#rate-mirror: 
+rate-mirrors --protocol=https arch | sudo tee /etc/pacman.d/mirrorlist
 #mkinitcpio:
 sudo mkinitcpio -P
 #exit:
