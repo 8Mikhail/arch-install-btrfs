@@ -75,7 +75,7 @@ sed 's|# %wheel ALL=(ALL:ALL) NOPASSWD: ALL|%wheel ALL=(ALL:ALL) NOPASSWD: ALL|g
 #с запросом пароля:
 #sed 's|# %wheel ALL=(ALL:ALL) ALL|%wheel ALL=(ALL:ALL) ALL|g' -i /etc/sudoers
 #chown:
-chown -R $username:users /home/$username/
+#chown -R $username:users /home/$username/
 #blkid:
 uuid=$(blkid -s UUID -o value $disk_root)
 #раскомментируйте необходимое:
