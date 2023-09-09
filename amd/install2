@@ -29,9 +29,9 @@ mount $disk_boot /boot/efi
 #hostname:
 echo $hostname >> /etc/hostname
 #locale eng:
-sed -i 's/#en_US.U/en_US.U/g' /etc/locale.gen
+sed -i 's|#en_US.UTF-8 UTF-8|en_US.UTF-8 UTF-8|g' /etc/locale.gen
 #locale rus:
-sed -i 's/#ru_RU.U/ru_RU.U/g' /etc/locale.gen
+sed -i 's|#ru_RU.UTF-8 UTF-8|ru_RU.UTF-8 UTF-8|g' /etc/locale.gen
 #locale generation:
 locale-gen
 #locale conf:
@@ -51,9 +51,9 @@ useradd -G wheel -s /bin/bash -m $username
     echo $pass
 ) | passwd $username
 #pacman.conf:
-sed 's/#ParallelDownloads = 5/ParallelDownloads = 5/' -i /etc/pacman.conf
+sed 's|#ParallelDownloads = 5|ParallelDownloads = 5|g' -i /etc/pacman.conf
 #pacman.conf:
-echo -e '[multilib]\nInclude = /etc/pacman.d/mirrorlist\n' >> /etc/pacman.conf
+sed 's|#[multilib]\#nInclude = /etc/pacman.d/mirrorlist|[multilib]\nInclude = /etc/pacman.d/mirrorlist|g' -i /etc/pacman.conf
 #install core lqx:
 pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
 #install core lqx:
@@ -62,15 +62,15 @@ pacman-key --lsign-key 9AE4078033F8024D
 echo '[liquorix]' >> /etc/pacman.conf
 #install core lqx:
 echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
-#pacman —Sy:
+#pacman -Sy:
 pacman -Sy
 #install core lqx:
 pacman -S linux-lqx linux-lqx-headers --noconfirm
 #sudoers:
 #без запроса пароля:
-sed 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' -i /etc/sudoers
+sed 's|# %wheel ALL=(ALL:ALL) NOPASSWD: ALL|%wheel ALL=(ALL:ALL) NOPASSWD: ALL|g' -i /etc/sudoers
 #с запросом пароля:
-#sed 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' -i /etc/sudoers
+#sed 's|# %wheel ALL=(ALL:ALL) ALL|%wheel ALL=(ALL:ALL) ALL|g' -i /etc/sudoers
 #chown:
 chown -R $username:users /home/$username/
 #blkid:
