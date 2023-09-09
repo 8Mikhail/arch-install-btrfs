@@ -24,7 +24,7 @@ echo '--------------------------------------------------'
 echo 'Install Arch Linux '$username'@'$hostname'		'
 echo '--------------------------------------------------'
 
-echo "Server = http://mirror.yandex.ru/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+echo "Server = http://mirror.yandex.ru/archlinux/$repo/os/$arch" > /etc/pacman.d/mirrorlist
 pacman -Sy sed --noconfirm
 
 echo '--------------------------------------------------'
