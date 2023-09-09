@@ -8,6 +8,7 @@ echo '--------------------------------------------------'
 username=neo
 hostname=matrix
 pass=1811
+password=3467
 disk_root=/dev/nvme0n1p5
 disk_boot=/dev/nvme0n1p1
 #Раскомментируйте необходимое:
