@@ -19,9 +19,9 @@ pacman -Sy sed wget --noconfirm
 #fonts:
 setfont cyr-sun16
 #echo:
-echo KEYMAP=ru >> /etc/vconsole.conf
+echo 'KEYMAP=ru' >> /etc/vconsole.conf
 #echo:
-echo FONT=cyr-sun16 >> /etc/vconsole.conf
+echo 'FONT=cyr-sun16' >> /etc/vconsole.conf
 #timezone:
 ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localetime
 #services:
@@ -31,7 +31,7 @@ systemctl enable NetworkManager.service
 #mount boot:
 mount $disk_boot /boot/efi
 #hostname:
-echo $hostname >> /etc/hostname
+echo '$hostname' >> /etc/hostname
 #locale eng:
 sed -i 's|#en_US.UTF-8 UTF|en_US.UTF-8 UTF|g' /etc/locale.gen
 #locale rus:
@@ -39,9 +39,9 @@ sed -i 's|#ru_RU.UTF-8 UTF|ru_RU.UTF-8 UTF|g' /etc/locale.gen
 #locale generation:
 locale-gen
 #locale conf:
-echo LANG=en_US.UTF-8 >> /etc/locale.conf
+echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
 #locale conf:
-echo LANG=ru_RU.UTF-8 >> /etc/locale.conf
+echo 'LANG=ru_RU.UTF-8' >> /etc/locale.conf
 #passwd root:
 (   
     echo $pass
@@ -65,9 +65,9 @@ pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
 #install core lqx:
 pacman-key --lsign-key 9AE4078033F8024D
 #install core lqx:
-echo [liquorix] >> /etc/pacman.conf
+echo '[liquorix]' >> /etc/pacman.conf
 #install core lqx:
-echo Server = https://liquorix.net/archlinux/$repo/$arch >> /etc/pacman.conf
+echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
 #pacman -Sy:
 pacman -Sy
 #install core lqx:
@@ -78,7 +78,7 @@ pacman -S linux-lqx linux-lqx-headers --noconfirm
 #с запросом пароля:
 sed 's|# %wheel ALL=(ALL:ALL) ALL|%wheel ALL=(ALL:ALL) ALL|g' -i /etc/sudoers
 #chown:
-chown -R $username:users /home/$username/
+#chown -R $username:users /home/$username/
 #blkid:
 uuid=$(blkid -s UUID -o value $disk_root)
 #раскомментируйте необходимое:
