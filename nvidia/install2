@@ -8,20 +8,21 @@ echo '--------------------------------------------------'
 username=neo
 hostname=matrix
 pass=1811
+password=3467
 disk_root=/dev/nvme0n1p5
 disk_boot=/dev/nvme0n1p1
 sleep=5
 
+$sleep
 echo '--------------------------------------------------'
 echo '|Install Arch Linux '$username'@'hostname'       |'
 echo '--------------------------------------------------'
-pacman -Sy sed wget --noconfirm
 #fonts:
 setfont cyr-sun16
 #echo:
-echo 'KEYMAP=ru' >> /etc/vconsole.conf
+echo -e 'KEYMAP=ru' >> /etc/vconsole.conf
 #echo:
-echo 'FONT=cyr-sun16' >> /etc/vconsole.conf
+echo -e 'FONT=cyr-sun16' >> /etc/vconsole.conf
 #timezone:
 ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localetime
 #services:
@@ -31,7 +32,7 @@ systemctl enable NetworkManager.service
 #mount boot:
 mount $disk_boot /boot/efi
 #hostname:
-echo '$hostname' >> /etc/hostname
+echo '$hostname >> /etc/hostname
 #locale eng:
 sed -i 's|#en_US.UTF-8 UTF|en_US.UTF-8 UTF|g' /etc/locale.gen
 #locale rus:
@@ -39,13 +40,13 @@ sed -i 's|#ru_RU.UTF-8 UTF|ru_RU.UTF-8 UTF|g' /etc/locale.gen
 #locale generation:
 locale-gen
 #locale conf:
-echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
+echo LANG=en_US.UTF-8 >> /etc/locale.conf
 #locale conf:
-echo 'LANG=ru_RU.UTF-8' >> /etc/locale.conf
+echo LANG=ru_RU. >> /etc/locale.conf
 #passwd root:
 (   
-    echo $pass
-    echo $pass
+    echo $password
+    echo $password
 ) | passwd
 #add user:
 useradd -m -g users -G wheel,video -s /bin/bash $username
