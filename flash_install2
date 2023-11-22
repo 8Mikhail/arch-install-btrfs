@@ -10,6 +10,7 @@ hostname=matrix
 pass=1811
 disk_root=/dev/nvme0n1p5
 disk_boot=/dev/nvme0n1p1
+$flash=
 sleep=5
 
 sleep $sleep
@@ -95,7 +96,7 @@ echo '"Boot to single-user mode" "rw root=UUID='$uuid' rootflags=subvol=@ loglev
 #refind:
 echo '"Boot with minimal options ro root='$disk_root'"' >> /boot/refind_linux.conf
 #refind:
-refind-install
+refind-install /dev/$flash
 #sleep:
 #sleep $sleep
 #echo '--------------------------------------------------------------------------------'
