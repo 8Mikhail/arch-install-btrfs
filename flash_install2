@@ -101,6 +101,6 @@ refind-install
 #echo '--------------------------------------------------------------------------------'
 #echo '|                    Установка пользовательских приложений                     |'
 #echo '--------------------------------------------------------------------------------'
-#echo "$username:$pass" | chpasswd && sh "/home/$username/install3.sh" $username $pass
+#echo "$username:$pass" | chpasswd && sh "/home/$username/flash_install3.sh" $username $pass
 #exit:
 exit
