@@ -10,6 +10,7 @@ hostname=matrix
 pass=1811
 disk_root=/dev/nvme0n1p5
 disk_boot=/dev/nvme0n1p1
+sleep=5
 
 sleep $sleep
 echo '--------------------------------------------------'
@@ -32,7 +33,7 @@ systemctl enable NetworkManager.service
 #mount boot:
 mount $disk_boot /boot/efi
 #hostname:
-echo '$hostname >> /etc/hostname
+echo $hostname >> /etc/hostname
 #locale eng:
 sed -i 's|#en_US.UTF-8 UTF-8|en_US.UTF-8 UTF-8|g' /etc/locale.gen
 #locale rus:
