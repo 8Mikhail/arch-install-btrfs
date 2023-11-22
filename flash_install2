@@ -96,7 +96,7 @@ echo '"Boot to single-user mode" "rw root=UUID='$uuid' rootflags=subvol=@ loglev
 #refind:
 echo '"Boot with minimal options ro root='$disk_root'"' >> /boot/refind_linux.conf
 #refind:
-refind-install /dev/$flash
+refind-install $flash
 #sleep:
 #sleep $sleep
 #echo '--------------------------------------------------------------------------------'
