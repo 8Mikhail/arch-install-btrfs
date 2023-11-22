@@ -44,7 +44,7 @@ locale-gen
 #locale conf:
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
 #locale conf:
-echo LANG=ru_RU. >> /etc/locale.conf
+echo LANG=ru_RU.UTF-8 >> /etc/locale.conf
 #passwd root:
 (   
     echo $password
