@@ -10,7 +10,7 @@ hostname=matrix
 pass=1811
 disk_root=/dev/nvme0n1p5
 disk_boot=/dev/nvme0n1p1
-$flash=
+$flash=/dev/sdX
 sleep=5
 
 sleep $sleep
