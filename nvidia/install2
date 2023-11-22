@@ -57,11 +57,11 @@ useradd -m -G wheel,video -s /bin/bash $username
     echo $pass
 ) | passwd $username
 #pacman.conf:
-sed 's|#ParallelDownloads = 5|ParallelDownloads = 5|g' -i /etc/pacman.conf
+sed -i 's|#ParallelDownloads = 5|ParallelDownloads = 5|g' /etc/pacman.conf
 #pacman.conf:
-sed 's|#[multilib]|[multilib]' -i /etc/pacman.conf
+sed -i 's|#[multilib]|[multilib]' /etc/pacman.conf
 #pacman.conf:
-sed 's|#Include = /etc/pacman.d/mirrorlist|Include = /etc/pacman.d/mirrorlist|g' -i /etc/pacman.conf
+sed -i 's|#Include = /etc/pacman.d/mirrorlist|Include = /etc/pacman.d/mirrorlist|g' /etc/pacman.conf
 #install core lqx:
 pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
 #install core lqx:
@@ -76,9 +76,9 @@ pacman -Sy
 pacman -S linux-lqx linux-lqx-headers --noconfirm
 #sudoers:
 #без запроса пароля:
-#sed 's|# %wheel ALL=(ALL:ALL) NOPASSWD: ALL|%wheel ALL=(ALL:ALL) NOPASSWD: ALL|g' -i /etc/sudoers
+#sed -i 's|# %wheel ALL=(ALL:ALL) NOPASSWD: ALL|%wheel ALL=(ALL:ALL) NOPASSWD: ALL|g' /etc/sudoers
 #с запросом пароля:
-sed 's|# %wheel ALL=(ALL:ALL) ALL|%wheel ALL=(ALL:ALL) ALL|g' -i /etc/sudoers
+sed -i 's|# %wheel ALL=(ALL:ALL) ALL|%wheel ALL=(ALL:ALL) ALL|g' /etc/sudoers
 #chown:
 #chown -R $username:users /home/$username/
 #blkid:
