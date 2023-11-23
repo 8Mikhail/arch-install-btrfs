@@ -8,9 +8,9 @@ echo '--------------------------------------------------'
 username=neo
 hostname=matrix
 pass=1811
-disk_root=/dev/nvme0n1p5
-disk_boot=/dev/nvme0n1p1
-$flash=/dev/sdX
+disk_root=/dev/sdX
+disk_boot=/dev/sdX
+flash=/dev/sdX
 sleep=5
 
 sleep $sleep
@@ -24,9 +24,9 @@ echo KEYMAP=ru >> /etc/vconsole.conf
 #echo:
 echo FONT=cyr-sun16 >> /etc/vconsole.conf
 #timezone:
-ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localetime
+#ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localetime
 #hwclock --systohc:
-hwclock --systohc
+#hwclock --systohc
 #services:
 systemctl enable iwd.service
 #services:
@@ -60,7 +60,7 @@ useradd -m -G wheel,video -s /bin/bash $username
 #pacman.conf:
 sed -i 's|#ParallelDownloads = 5|ParallelDownloads = 5|g' /etc/pacman.conf
 #pacman.conf:
-sed -i 's|#[multilib]|[multilib]' /etc/pacman.conf
+sed -i 's|#[multilib]|[multilib]g' /etc/pacman.conf
 #pacman.conf:
 sed -i 's|#Include = /etc/pacman.d/mirrorlist|Include = /etc/pacman.d/mirrorlist|g' /etc/pacman.conf
 #install core lqx:
@@ -84,19 +84,16 @@ sed -i 's|# %wheel ALL=(ALL:ALL) ALL|%wheel ALL=(ALL:ALL) ALL|g' /etc/sudoers
 #chown -R $username:users /home/$username/
 #blkid:
 uuid=$(blkid -s UUID -o value $disk_root)
-#раскомментируйте необходимое:
-#refind nvidia:
-echo '"Boot to standard options" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1"' >> /boot/refind_linux.conf
-#refind nvidia:
-echo '"Boot to single-user mode" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1 single"' >> /boot/refind_linux.conf
-#refind mesa:
-#echo '"Boot to standard options" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs"' >> /boot/refind_linux.conf
-#refind mesa:
-#echo '"Boot to single-user mode" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs single"' >> /boot/refind_linux.conf
-#refind:
-echo '"Boot with minimal options ro root='$disk_root'"' >> /boot/refind_linux.conf
-#refind:
-refind-install $flash
+# Получите уникальный идентификатор EFI раздела
+EFI_PARTITION=$(blkid -o value -s UUID $disk_boot)
+# Установите GRUB с использованием уникального идентификатора
+grub-install --target=x86_64-efi --efi-directory="/boot/efi" --bootloader-id=grub --recheck --debug --removable --no-nvram --modules="part_gpt part_msdos" --skip-fs-probe
+# Обновите конфигурацию GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+#mkinitcpio:
+sed -i 's|HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems fsck)|HOOKS=(base udev modconf kms keyboard keymap consolefont block filesystems fsck)|g'
+#mkinitcpio:
+mkinitcpio -P
 #sleep:
 #sleep $sleep
 #echo '--------------------------------------------------------------------------------'
