@@ -8,11 +8,11 @@ echo '--------------------------------------------------'
 username=neo
 hostname=matrix
 pass=1811
-disk_root=/dev/nvme0n1p5
-disk_boot=/dev/nvme0n1p1
-$flash=/dev/sdX
+disk_root=/dev/sdX
+disk_boot=/dev/sdX
+flash=/dev/sdX
 #Раскомментируйте необходимое:
-disk_swap=/dev/nvme0n1p6
+disk_swap=/dev/sdX
 #ucode=amd-ucode
 ucode=intel-ucode
 sleep=5
@@ -41,7 +41,7 @@ sleep $sleep
 #formating disk:
 mkfs.btrfs -f $disk_root
 #formating disk:
-#mkfs.vfat $disk_boot
+mkfs.vfat $disk_boot
 #раскомментируйте необходимое:
 #formatting disk:
 mkswap $disk_swap
@@ -67,34 +67,34 @@ echo '--------------------------------------------------'
 echo '|             Монтирование разделов               |'
 echo '--------------------------------------------------'
 #mount disk: 
- mount -o rw,noatime,compress=lzo,recovery,autodefrag,space_cache=v2,ssd,discard=async,subvol=@ $disk_root /mnt 
+ mount -o compress-force,ssd,subvol=@ $disk_root /mnt 
  #mkdir folders: 
  mkdir /mnt/{var,home,boot} 
  #mkdir /boot/efi: 
  mkdir /mnt/boot/efi 
  #mount disk: 
- mount -o rw,noatime,compress=lzo,recovery,autodefrag,space_cache=v2,ssd,discard=async,subvol=@home $disk_root /mnt/home 
+ mount -o compress-force,ssd,subvol=@home $disk_root /mnt/home 
  #mount disk: 
- mount -o rw,noatime,compress=lzo,recovery,autodefrag,space_cache=v2,ssd,discard=async,subvol=@var $disk_root /mnt/var
+ mount -o compress-force,ssd,subvol=@var $disk_root /mnt/var
  #sleep: 
  #sleep $sleep '--------------------------------------------------'
 echo '|             Установка Arch Linux                |'
 echo '--------------------------------------------------'
 #install arch:
-pacstrap -K /mnt base base-devel linux-firmware refind efibootmgr iwd networkmanager micro htop btrfs-progs git ntfs-3g $ucode bash --noconfirm
+pacstrap -K /mnt base base-devel linux-firmware grub efibootmgr iwd networkmanager micro htop btrfs-progs git ntfs-3g $ucode bash --noconfirm
 #fstab generation:
 genfstab -U -p /mnt >> /mnt/etc/fstab
 #chroot:
 mkdir -p /mnt/home/$username/
 #раскомментируйте необходимое:
 #chroot nvidia:
-cp -f arch-install-btrfs/flash/nvidia/flash_install /mnt/home/$username/
-cp -f arch-install-btrfs/flash/nvidia/flash_install2 /mnt/home/$username/
-cp -f arch-install-btrfs/flash/nvidia/flash_install3.sh /mnt/home/$username/
+cp -f arch-install-btrfs/flash_install /mnt/home/$username/
+cp -f arch-install-btrfs/flash_install2 /mnt/home/$username/
+cp -f arch-install-btrfs/flash_install3.sh /mnt/home/$username/
 #chroot mesa:
-#cp -f arch-install-btrfs/flash/amd/flash_install /mnt/home/$username/
-#cp -f arch-install-btrfs/flash/amd/flash_install2 /mnt/home/$username/
-#cp -f arch-install-btrfs/flash/amd/flash_install3.sh /mnt/home/$username/
+#cp -f arch-install-btrfs/flash_install /mnt/home/$username/
+#cp -f arch-install-btrfs/flash_install2 /mnt/home/$username/
+#cp -f arch-install-btrfs/flash_install3.sh /mnt/home/$username/
 #sleep:
 #sleep $sleep
 #раскомментируйте необходимое:
