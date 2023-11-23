@@ -13,3 +13,5 @@ cd
 pikaur -S libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome ventoy-bin onlyoffice-bin rate-mirrors-bin xpadneo-dkms latte-dock-git yandex-browser --noconfirm
 #aur apps and opencl-amd:
 #pikaur -S opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome ventoy-bin onlyoffice-bin rate-mirrors-bin xpadneo-dkms latte-dock-git --noconfirm
+#rate-mirror:
+rate-mirrors --protocol=https arch | sudo tee /etc/pacman.d/mirrorlist
