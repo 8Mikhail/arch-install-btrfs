@@ -60,9 +60,9 @@ useradd -m -G wheel,video -s /bin/bash $username
 #pacman.conf:
 sed -i 's|#ParallelDownloads = 5|ParallelDownloads = 5|g' /etc/pacman.conf
 #pacman.conf:
-sed -i 's|#[multilib]|[multilib]g' /etc/pacman.conf
+echo '[multilib]' >> /etc/pacman.conf
 #pacman.conf:
-sed -i 's|#Include = /etc/pacman.d/mirrorlist|Include = /etc/pacman.d/mirrorlist|g' /etc/pacman.conf
+echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
 #install core lqx:
 pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
 #install core lqx:
@@ -82,14 +82,14 @@ pacman -S linux-lqx linux-lqx-headers --noconfirm
 sed -i 's|# %wheel ALL=(ALL:ALL) ALL|%wheel ALL=(ALL:ALL) ALL|g' /etc/sudoers
 #chown:
 #chown -R $username:users /home/$username/
-#blkid:
-uuid=$(blkid -s UUID -o value $disk_root)
 # Получите уникальный идентификатор EFI раздела
 EFI_PARTITION=$(blkid -o value -s UUID $disk_boot)
 # Установите GRUB с использованием уникального идентификатора
 grub-install --target=x86_64-efi --efi-directory="/boot/efi" --bootloader-id=grub --recheck --debug --removable --no-nvram --modules="part_gpt part_msdos" --skip-fs-probe
 # Обновите конфигурацию GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
+#mkinitcpio:
+mkinitcpio -P
 #mkinitcpio:
 sed -i 's|HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems fsck)|HOOKS=(base udev modconf kms keyboard keymap consolefont block filesystems fsck)|g'
 #mkinitcpio:
