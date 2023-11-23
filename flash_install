@@ -107,5 +107,5 @@ arch-chroot /mnt /bin/bash -c "$(cat /mnt/home/$username/flash_install2)" $usern
 #echo '--------------------------------------------------'
 #echo '|                 Перезагрузка                   |'
 #echo '--------------------------------------------------'
-umount -R /mnt/
-reboot
+#umount -R /mnt/
+#reboot
