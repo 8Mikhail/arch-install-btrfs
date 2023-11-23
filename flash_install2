@@ -82,6 +82,21 @@ pacman -S linux-lqx linux-lqx-headers --noconfirm
 sed -i 's|# %wheel ALL=(ALL:ALL) ALL|%wheel ALL=(ALL:ALL) ALL|g' /etc/sudoers
 #chown:
 #chown -R $username:users /home/$username/
+#blkid:
+uuid=$(blkid -s UUID -o value $disk_root)
+#раскомментируйте необходимое:
+#refind nvidia:
+echo '"Boot to standard options" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1"' >> /boot/refind_linux.conf
+#refind nvidia:
+echo '"Boot to single-user mode" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1 single"' >> /boot/refind_linux.conf
+#refind mesa:
+#echo '"Boot to standard options" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs"' >> /boot/refind_linux.conf
+#refind mesa:
+#echo '"Boot to single-user mode" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs single"' >> /boot/refind_linux.conf
+#refind:
+echo '"Boot with minimal options ro root='$disk_root'"' >> /boot/refind_linux.conf
+#refind:
+refind-install
 # Получите уникальный идентификатор EFI раздела
 EFI_PARTITION=$(blkid -o value -s UUID $disk_boot)
 # Установите GRUB с использованием уникального идентификатора
