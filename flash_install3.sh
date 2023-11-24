@@ -48,6 +48,8 @@ sudo sed -i 's|MODULES=()|MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm b
 sudo sed -i 's|GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"|GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia-drm.modeset=1"|g' /etc/default/grub
 #grub:
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+#kwin:
+sudo echo "KWIN_DRM_USE_EGL_STREAMS=1 >> .profile
 #enviroment:
 sudo echo 'NVD_BACKEND=direct' >> /etc/enviroment
 #enviroment:
