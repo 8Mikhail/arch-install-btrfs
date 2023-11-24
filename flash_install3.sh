@@ -47,7 +47,7 @@ sudo sed -i 's|MODULES=()|MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm b
 #grub:
 sudo sed -i 's|GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"|GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia-drm.modeset=1"|g' /etc/default/grub
 #grub:
-sudo update-grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 #enviroment:
 sudo echo 'NVD_BACKEND=direct' >> /etc/enviroment
 #enviroment:
