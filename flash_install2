@@ -23,10 +23,6 @@ setfont cyr-sun16
 echo KEYMAP=ru >> /etc/vconsole.conf
 #echo:
 echo FONT=cyr-sun16 >> /etc/vconsole.conf
-#timezone:
-#ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localetime
-#hwclock --systohc:
-#hwclock --systohc
 #services:
 systemctl enable iwd.service
 #services:
@@ -64,13 +60,13 @@ echo '[multilib]' >> /etc/pacman.conf
 #pacman.conf:
 echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
 #install core lqx:
-pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
-#install core lqx:
-pacman-key --lsign-key 9AE4078033F8024D
-#install core lqx:
 echo '[liquorix]' >> /etc/pacman.conf
 #install core lqx:
 echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
+#install core lqx:
+pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
+#install core lqx:
+pacman-key --lsign-key 9AE4078033F8024D
 #pacman -Sy:
 pacman -Sy
 #install core lqx:
@@ -80,8 +76,6 @@ pacman -S linux-lqx linux-lqx-headers --noconfirm
 #sed -i 's|# %wheel ALL=(ALL:ALL) NOPASSWD: ALL|%wheel ALL=(ALL:ALL) NOPASSWD: ALL|g' /etc/sudoers
 #с запросом пароля:
 sed -i 's|# %wheel ALL=(ALL:ALL) ALL|%wheel ALL=(ALL:ALL) ALL|g' /etc/sudoers
-#chown:
-#chown -R $username:users /home/$username/
 #blkid:
 uuid=$(blkid -s UUID -o value $disk_root)
 #раскомментируйте необходимое:
@@ -106,7 +100,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 #mkinitcpio:
 mkinitcpio -P
 #mkinitcpio:
-sed -i 's|HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems fsck)|HOOKS=(base udev modconf kms keyboard keymap consolefont block filesystems fsck)|g'
+sed -i 's|HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems fsck)|HOOKS=(base udev modconf kms keyboard keymap consolefont block filesystems fsck)|g' /etc/mkinitcpio.conf
 #mkinitcpio:
 mkinitcpio -P
 #sleep:
