@@ -12,7 +12,8 @@ echo '--------------------------------------------------'
 echo '|              Установка драйверов               |'
 echo '--------------------------------------------------'
 #chown:
-#chown -R $username:users /home/$username/#xorg:
+( echo $pass )|sudo chown -R $username:users /home/$username
+#xorg:
 sudo pacman -S xorg-server
 #wget:
 sudo pacman -S wget
