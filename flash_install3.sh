@@ -43,7 +43,7 @@ sudo cpupower frequency-set -g performance
 #mkinitcpio.conf:
 #Раскомментируйте на необходимое:
 #nvidia modules:
-sudo sed -i 's|MODULES=()|MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm btrfs)|g' /etc/mkinitcpio.conf
+sudo sed -i 's|MODULES=()|MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm btrfs"|g' /etc/mkinitcpio.conf
 #enviroment:
 sudo echo 'NVD_BACKEND=direct' >> /etc/enviroment
 #enviroment:
