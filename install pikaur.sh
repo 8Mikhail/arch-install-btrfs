@@ -10,7 +10,7 @@ cd pikaur
 cd
 #раскомментируйте необходимое:
 #aur apps and libva-nvidia-driver:
-pikaur -S libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome ventoy-bin onlyoffice-bin rate-mirrors-bin xpadneo-dkms latte-dock-git yandex-browser --noconfirm
+pikaur -S libva-nvidia-driver-git pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome ventoy-bin onlyoffice-bin rate-mirrors-bin xpadneo-dkms latte-dock-git yandex-browser
 #aur apps and opencl-amd:
 #pikaur -S opencl-amd pamac-aur stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome ventoy-bin onlyoffice-bin rate-mirrors-bin xpadneo-dkms latte-dock-git --noconfirm
 #rate-mirror:
