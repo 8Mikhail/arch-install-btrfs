@@ -49,7 +49,7 @@ sudo sed -i 's|GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"|GRUB_CMDLINE_LINUX_
 #grub:
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 #kwin:
-sudo echo "KWIN_DRM_USE_EGL_STREAMS=1 >> .profile
+sudo echo "KWIN_DRM_USE_EGL_STREAMS=1" >> .profile
 #enviroment:
 sudo echo 'NVD_BACKEND=direct' >> /etc/enviroment
 #enviroment:
