@@ -3,7 +3,7 @@
 #Измените на своё:
 username=neo
 pass=1811
-amd=mesa lib32-mesa libva-mesa-driver lib32-libva-mesa-driver
+amd=mesa libva-mesa-driver lib32-libva-mesa-driver
 nvidia=nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils cuda libva-vdpau-driver lib32-libva-vdpau-driver libva-utils vdpauinfo
 nvidia_no_vdpau_nvidia=nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils cuda
 
@@ -12,33 +12,33 @@ echo '--------------------------------------------------'
 echo '|              Установка драйверов               |'
 echo '--------------------------------------------------'
 #xorg:
-sudo pacman -S xorg-server --noconfirm
+sudo pacman -S xorg-server
 #wget:
-sudo pacman -S wget --noconfirm
+sudo pacman -S wget
 #KDE and apps:
-sudo pacman -S plasma plasma-desktop plasma-framework breeze breeze-gtk kde-gtk-config sddm --noconfirm
+sudo pacman -S plasma plasma-desktop breeze breeze-gtk kde-gtk-config sddm
 #KDE drivers and apps:
-sudo pacman -S dolphin konsole kdenlive gwenview elisa mpv kcalc kcalendarcore kdeconnect plasma-wayland-session kwalletmanager kdenetwork-filesharing samba spectacle --noconfirm
+sudo pacman -S dolphin konsole kdenlive gwenview elisa mpv kcalc kcalendarcore kdeconnect plasma-wayland-session kwalletmanager kdenetwork-filesharing samba spectacle
 #nvidia and cuda:
-sudo pacman -S $nvidia_no_vdpau_nvidia 
+sudo pacman -S $nvidia vdpauinfo
 #apps:
-sudo pacman -S firefox gparted packagekit-qt5 ark engrampa caja p7zip unace brotli rpm-tools cpio steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utilityicoutils --noconfirm
+sudo pacman -S firefox gparted packagekit-qt5 ark engrampa caja p7zip unace brotli rpm-tools cpio steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility icoutils
 #apps:
-sudo pacman -S bubblewrap lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-openssl meson cifs-utils extra-cmake-modules gst-libav base-devel mpv --noconfirm
+sudo pacman -S bubblewrap lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-openssl meson cifs-utils extra-cmake-modules gst-libav base-devel mpv
 #apps:
-sudo pacman -S python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake --noconfirm
+sudo pacman -S python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake
 #apps:
-sudo pacman -S zstd cabextract bc tar openssl gamemode lib32-gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr lsof lib32-freetype2 --noconfirm
+sudo pacman -S zstd cabextract bc tar openssl gamemode lib32-gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr lsof lib32-freetype2
 #vulkan:
-sudo pacman -S vulkan-driver lib32-vulkan-driver vulkan-icd-loader lib32-vulkan-icd-loader --noconfirm
+sudo pacman -S vulkan-driver lib32-vulkan-driver vulkan-icd-loader lib32-vulkan-icd-loader
 #apps:
-sudo pacman -S qt-gstreamer gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers --noconfirm
+sudo pacman -S qt-gstreamer gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers
 #pipewire:
-sudo pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack --noconfirm
+sudo pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack
 #bluetooth:
-sudo pacman -S bluez bluez-utils --noconfirm
+sudo pacman -S bluez bluez-utils
 #install cpupower:
-sudo pacman -S cpupower --noconfirm
+sudo pacman -S cpupower
 #setting cpupower:
 sudo cpupower frequency-set -g performance
 #mkinitcpio.conf:
