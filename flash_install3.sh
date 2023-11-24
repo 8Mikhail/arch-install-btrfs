@@ -45,7 +45,9 @@ sudo cpupower frequency-set -g performance
 #nvidia modules:
 sudo sed -i 's|MODULES=()|MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm btrfs"|g' /etc/mkinitcpio.conf
 #grub:
-see -i 's|GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"|GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia-drm.modeset=1"|g' /etc/default/grub
+sudo sed -i 's|GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"|GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia-drm.modeset=1"|g' /etc/default/grub
+#grub:
+sudo update-grub
 #enviroment:
 sudo echo 'NVD_BACKEND=direct' >> /etc/enviroment
 #enviroment:
