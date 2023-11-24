@@ -23,7 +23,7 @@ sudo pacman -S dolphin konsole kdenlive gwenview elisa mpv kcalc kcalendarcore k
 #apps:
 sudo pacman -S firefox gparted packagekit-qt5 ark engrampa caja p7zip unace brotli rpm-tools cpio steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility icoutils
 #apps:
-sudo pacman -S bubblewrap lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-openssl meson cifs-utils extra-cmake-modules gst-libav base-devel mpv vlc
+sudo pacman -S bubblewrap lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-openssl meson cifs-utils extra-cmake-modules gst-libav base-devel mpv vlc elisa
 #apps:
 sudo pacman -S python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake
 #apps:
