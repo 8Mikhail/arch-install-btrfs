@@ -21,8 +21,8 @@ echo "source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
 #
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 #
-sudo sed 's|# export PATH=$HOME/bin:/usr/local/bin:$PATH|export PATH=$HOME/bin:/usr/local/bin:$PATH|g' -i ~/.zshrc
+sudo sed -i 's|# export PATH=$HOME/bin:/usr/local/bin:$PATH|export PATH=$HOME/bin:/usr/local/bin:$PATH|g' ~/.zshrc
 #
-sudo sed 's|plugins=(git)|plugins=(git zsh-autosuggestions sudo)|g' -i .zshrc
+sudo sed -i 's|plugins=(git)|plugins=(git zsh-autosuggestions sudo)|g' .zshrc
 #
 source .zshrc
