@@ -11,7 +11,8 @@ nvidia_no_vdpau_nvidia=nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings li
 echo '--------------------------------------------------'
 echo '|              Установка драйверов               |'
 echo '--------------------------------------------------'
-#xorg:
+#chown:
+#chown -R $username:users /home/$username/#xorg:
 sudo pacman -S xorg-server
 #wget:
 sudo pacman -S wget
