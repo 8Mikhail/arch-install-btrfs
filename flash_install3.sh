@@ -44,6 +44,8 @@ sudo pacman -S bluez bluez-utils
 sudo pacman -S cpupower
 #setting cpupower:
 sudo cpupower frequency-set -g performance
+#
+sudo sed -i "s|#governor='ondemand'|governor='performance'|g" /etc/default/cpupower
 #mkinitcpio.conf:
 #Раскомментируйте на необходимое:
 #nvidia modules:
@@ -55,44 +57,17 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 #kwin:
 sudo echo "KWIN_DRM_USE_EGL_STREAMS=1" >> .profile
 #enviroment:
-sudo echo 'NVD_BACKEND=direct' >> /etc/enviroment
+echo 'NVD_BACKEND=direct' >> /etc/enviroment
 #enviroment:
-sudo echo 'MOZ_DISABLE_RDD_SANDBOX=1' >> /etc/enviroment
+echo 'MOZ_DISABLE_RDD_SANDBOX=1' >> /etc/enviroment
 #enviroment nvidia:
-sudo echo 'LIBVA_DRIVER_NAME=nvidia' >> /etc/enviroment
+echo 'LIBVA_DRIVER_NAME=nvidia' >> /etc/enviroment
 #enviroment:
-sudo echo 'EDITOR=micro' >> /etc/enviroment
+echo 'EDITOR=micro' >> /etc/enviroment
 #enviroment:
-sudo echo 'EGL_PLATFORM=wayland' >> /etc/enviroment
+echo 'EGL_PLATFORM=wayland' >> /etc/enviroment
 #enviroment:
-sudo echo 'MOZ_ENABLE_WAYLAND=1 firefox' >> /etc/enviroment
-#samba:
-sudo echo '[global]' >> /etc/samba/smb.conf
-#samba:
-sudo echo 'usershare path = /var/lib/samba/usershares' >> /etc/samba/smb.conf
-#samba:
-sudo echo 'usershare max shares = 100' >> /etc/samba/smb.conf
-#samba:
-sudo echo 'usershare allow guests = yes' >> /etc/samba/smb.conf
-#samba:
-sudo echo 'usershare owner only = yes' >> /etc/samba/smb.conf
-#samba:
-(  echo $pass 
-   echo $pass ) | sudo smbpasswd -a $username
-#samba:
-sudo usermod -g users -G wheel $username
-#samba:
-sudo mkdir /var/lib/samba/usershares
-#samba:
-sudo chown root:users /var/lib/samba/usershares
-#samba:
-sudo chmod 1770 /var/lib/samba/usershares
-#samba:
-sudo gpasswd users -a $username
-#samba:
-sudo systemctl enable smb
-#samba:
-sudo systemctl enable nmb
+echo 'MOZ_ENABLE_WAYLAND=1 firefox' >> /etc/enviroment
 #services:
 sudo systemctl enable sddm
 #services:
