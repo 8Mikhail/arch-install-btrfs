@@ -12,7 +12,7 @@ curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/in
 #chsh
 (  echo $pass 
    echo $pass ) | sudo chsh -s /usr/bin/zsh
-#
+#ДАЛЕЕ ЖМЕМ zsh И ПРОДОЛЖАЕМ ТАМ:
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 #
 mv zsh-syntax-highlighting .zsh-syntax-highlighting
@@ -23,6 +23,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 #
 sudo sed -i 's|# export PATH=$HOME/bin:/usr/local/bin:$PATH|export PATH=$HOME/bin:/usr/local/bin:$PATH|g' ~/.zshrc
 #
-sudo sed -i 's|plugins=(git)|plugins=(git zsh-autosuggestions sudo)|g' .zshrc
+sudo sed -i 's|plugins=(git)|plugins=(git zsh-autosuggestions sudo)|g' ~/.zshrc
 #
-source .zshrc
+source ~/.zshrc
