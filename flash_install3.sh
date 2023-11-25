@@ -10,10 +10,10 @@ echo '|              Установка драйверов               |'
 echo '--------------------------------------------------'
 #chown:
 ( echo $pass )|sudo chown -R $username:users /home/$username
-#fstab:
-sudo echo 'tmpfs /tmp tmpfs nodev,nosuid 0 0' >> /etc/fstab
-sudo echo 'tmpfs /var/tmp tmpfs defaults 0 0' >> /etc/fstab
-sudo echo 'tmpfs /var/log tmpfs defaults 0 0' >> /etc/fstab
+#ВРУЧНУЮ ВВЕДИТЕ ТРИ СТРОЧКИ в FSTAB:
+#tmpfs /tmp tmpfs nodev,nosuid 0 0
+#tmpfs /var/tmp tmpfs defaults 0 0
+#tmpfs /var/log tmpfs defaults 0 0
 #xorg:
 sudo pacman -S xorg-server
 #wget:
