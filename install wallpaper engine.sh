@@ -1,4 +1,5 @@
-# Download source
+#####sudo pacman -S extra-cmake-modules plasma-framework gst-libav base-devel mpv python-websockets qt5-declarative qt5-websockets qt5-webchannel vulkan-headers cmake
+Download source
 git clone https://github.com/catsout/wallpaper-engine-kde-plugin.git
 cd wallpaper-engine-kde-plugin
 
