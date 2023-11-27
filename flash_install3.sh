@@ -10,10 +10,22 @@ echo '|              Установка драйверов               |'
 echo '--------------------------------------------------'
 #chown:
 ( echo $pass )|sudo chown -R $username:users /home/$username
+#
+sudo btrfs subvolume create /swap
+#
+sudo btrfs filesystem mkswapfile --size 16g --uuid clear /swap/swapfile
+#
+echo '/swap/swapfile        none        swap        defaults    0 0' >> /etc/fstab
+#
+sudo swapon /swap/swapfile
 #ВРУЧНУЮ ВВЕДИТЕ ТРИ СТРОЧКИ в FSTAB:
 #tmpfs /tmp tmpfs nodev,nosuid 0 0
 #tmpfs /var/tmp tmpfs defaults 0 0
 #tmpfs /var/log tmpfs defaults 0 0
+#ПОПРАВЬ ОПЦИИ У КОРНЯ:
+#compress-force,ssd,subvol=@ 0 0
+#compress-force,ssd,subvol=@home 0 0
+#compress-force,ssd,subvol=@var 0 0
 #xorg:
 sudo pacman -S xorg-server
 #wget:
