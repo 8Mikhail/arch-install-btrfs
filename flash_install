@@ -67,15 +67,15 @@ echo '--------------------------------------------------'
 echo '|             Монтирование разделов               |'
 echo '--------------------------------------------------'
 #mount disk: 
- mount -o compress-force,ssd,subvol=@ $disk_root /mnt 
+ mount -o rw,noatime,compress=zstd:3,space_cache=v2,ssd,discard=async,subvol=@ $disk_root /mnt 
  #mkdir folders: 
  mkdir /mnt/{var,home,boot} 
  #mkdir /boot/efi: 
  mkdir /mnt/boot/efi 
  #mount disk: 
- mount -o compress-force,ssd,subvol=@home $disk_root /mnt/home 
+ mount -o rw,noatime,compress=zstd:3,space_cache=v2,ssd,discard=async,subvol=@home $disk_root /mnt/home 
  #mount disk: 
- mount -o compress-force,ssd,subvol=@var $disk_root /mnt/var
+ mount -o rw,noatime,compress=zstd:3,space_cache=v2,ssd,discard=async,subvol=@var $disk_root /mnt/var
  #sleep: 
  #sleep $sleep '--------------------------------------------------'
 echo '|             Установка Arch Linux                |'
