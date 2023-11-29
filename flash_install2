@@ -1,9 +1,5 @@
 #!/bin/bash
 
-echo '--------------------------------------------------'
-echo '|                 Config Install                  |'
-echo '--------------------------------------------------'
-
 #Замените на своё:
 username=neo
 hostname=matrix
@@ -13,10 +9,11 @@ disk_boot=/dev/sdX
 flash=/dev/sdX
 sleep=5
 
+echo '--------------------------------------------------'
+echo '|Установка Arch Linux '$username'@'hostname'      |'
+echo '--------------------------------------------------'
+#sleep:
 sleep $sleep
-echo '--------------------------------------------------'
-echo '|Install Arch Linux '$username'@'hostname'       |'
-echo '--------------------------------------------------'
 #fonts:
 setfont cyr-sun16
 #echo:
