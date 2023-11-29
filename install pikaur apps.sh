@@ -1,3 +1,14 @@
+#!/bin/bash
+
+#Измените на своё:
+username=neo
+pass=1811
+sleep=5
+
+
+
+#sleep:
+sleep $sleep
 #install pikaur:
 git clone https://aur.archlinux.org/pikaur.git
 #install pikaur:
