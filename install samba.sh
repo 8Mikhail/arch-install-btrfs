@@ -1,3 +1,15 @@
+#!/bin/bash
+
+#Измените на своё:
+username=neo
+pass=1811
+sleep=5
+
+echo '--------------------------------------------------'
+echo '|             Донастройка Samba                   |'
+echo '--------------------------------------------------'
+#sleep:
+sleep $sleep
 #samba:
 echo '[global]' >> /etc/samba/smb.conf
 #samba:
@@ -25,3 +37,5 @@ sudo gpasswd users -a $username
 sudo systemctl enable smb
 #samba:
 sudo systemctl enable nmb
+#
+exit
