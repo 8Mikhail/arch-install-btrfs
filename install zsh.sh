@@ -1,7 +1,17 @@
+#!/bin/bash
+
+#Измените на своё:
+username=neo
+pass=1811
+sleep=5
+
+
 #install zsh:
 echo '--------------------------------------------------'
 echo '|            Установка оболочки zsh              |'
 echo '--------------------------------------------------'
+#sleep:
+sleep $sleep
 #zsh
 sudo pacman -S zsh --noconfirm
 #oh-my-zsh
@@ -26,3 +36,5 @@ sudo sed -i 's|# export PATH=$HOME/bin:/usr/local/bin:$PATH|export PATH=$HOME/bi
 sudo sed -i 's|plugins=(git)|plugins=(git zsh-autosuggestions sudo)|g' ~/.zshrc
 #
 source ~/.zshrc
+#
+exit
