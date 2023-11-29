@@ -5,8 +5,9 @@ username=neo
 pass=1811
 sleep=5
 
-
-
+echo '--------------------------------------------------'
+echo '|               Установка pikaur                  |'
+echo '--------------------------------------------------'
 #sleep:
 sleep $sleep
 #install pikaur:
