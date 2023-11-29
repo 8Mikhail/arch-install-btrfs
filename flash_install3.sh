@@ -3,11 +3,14 @@
 #Измените на своё:
 username=neo
 pass=1811
+sleep=5
 
 
 echo '--------------------------------------------------'
 echo '|       Установка драйверов и приложений          |'
 echo '--------------------------------------------------'
+#sleep:
+sleep $sleep
 #chown:
 ( echo $pass )|sudo chown -R $username:users /home/$username
 #
