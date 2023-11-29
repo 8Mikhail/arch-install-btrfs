@@ -37,15 +37,9 @@ sudo pacman -S nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-open
 #KDE drivers and apps:
 sudo pacman -S dolphin konsole kdenlive gwenview elisa mpv kcalc kcalendarcore kdeconnect plasma-wayland-session egl-wayland kwalletmanager kdenetwork-filesharing samba spectacle
 #apps:
-sudo pacman -S firefox gparted packagekit-qt5 ark engrampa caja p7zip unace brotli rpm-tools cpio steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility icoutils
+sudo pacman -S firefox gparted packagekit-qt5 ark engrampa caja p7zip unace brotli rpm-tools cpio steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility
 #apps:
-sudo pacman -S bubblewrap lib32-libgl lib32-gcc-libs lib32-libx11 lib32-libxss lib32-alsa-plugins lib32-libgpg-error lib32-nss lib32-openssl meson cifs-utils extra-cmake-modules gst-libav base-devel mpv vlc elisa
-#apps:
-sudo pacman -S python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake
-#apps:
-sudo pacman -S zstd cabextract bc tar openssl gamemode lib32-gamemode desktop-file-utils curl dbus freetype2 gdk-pixbuf2 ttf-font zenity lsb-release nss xorg-xrandr lsof lib32-freetype2
-#vulkan:
-sudo pacman -S vulkan-driver lib32-vulkan-driver vulkan-icd-loader lib32-vulkan-icd-loader
+sudo pacman -S meson cifs-utils extra-cmake-modules gst-libav base-devel mpv vlc elisa python-websockets qt5-declarative qt5-websockets qt5-webchannel cmake
 #apps:
 sudo pacman -S qt-gstreamer gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly ffnvcodec-headers
 #pipewire:
@@ -64,28 +58,28 @@ sudo sed -i "s|#governor='ondemand'|governor='performance'|g" /etc/default/cpupo
 sudo sed -i 's|MODULES=()|MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm btrfs"|g' /etc/mkinitcpio.conf
 #grub:
 sudo sed -i 's|GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"|GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia-drm.modeset=1"|g' /etc/default/grub
-#grub:
-sudo grub-mkconfig -o /boot/grub/grub.cfg
 #kwin:
 sudo echo "KWIN_DRM_USE_EGL_STREAMS=1" >> .profile
 #enviroment:
-echo 'NVD_BACKEND=direct' >> /etc/enviroment
+sudo echo 'NVD_BACKEND=direct' >> /etc/enviroment
 #enviroment:
-echo 'MOZ_DISABLE_RDD_SANDBOX=1' >> /etc/enviroment
+sudo echo 'MOZ_DISABLE_RDD_SANDBOX=1' >> /etc/enviroment
 #enviroment nvidia:
-echo 'LIBVA_DRIVER_NAME=nvidia' >> /etc/enviroment
+sudo echo 'LIBVA_DRIVER_NAME=nvidia' >> /etc/enviroment
 #enviroment:
-echo 'EDITOR=micro' >> /etc/enviroment
+sudo echo 'EDITOR=micro' >> /etc/enviroment
 #enviroment:
-echo 'EGL_PLATFORM=wayland' >> /etc/enviroment
+sudo echo 'EGL_PLATFORM=wayland' >> /etc/enviroment
 #enviroment:
-echo 'MOZ_ENABLE_WAYLAND=1 firefox' >> /etc/enviroment
+sudo echo 'MOZ_ENABLE_WAYLAND=1 firefox' >> /etc/enviroment
 #services:
 sudo systemctl enable sddm
 #services:
 sudo systemctl enable bluetooth
 #services:
 sudo systemctl enable cpupower
+#grub:
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 #mkinitcpio:
 sudo mkinitcpio -P
 #exit:
