@@ -29,3 +29,5 @@ pikaur -S libva-nvidia-driver-git stacer-bin fastfetch timeshift timeshift-autos
 pikaur -S xpadneo-dkms
 #rate-mirror:
 rate-mirrors --protocol=https arch | sudo tee /etc/pacman.d/mirrorlist
+#
+exit
