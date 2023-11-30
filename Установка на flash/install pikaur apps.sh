@@ -25,7 +25,7 @@ cd
 sudo pacman -R libva-vdpau-driver --noconfirm
 #
 #aur apps and libva-nvidia-driver:
-pikaur -S libva-nvidia-driver-git stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome ventoy-bin onlyoffice-bin rate-mirrors-bin yandex-browser
+pikaur -S libva-nvidia-driver-git stacer-bin fastfetch timeshift timeshift-autosnap protonup-qt-bin google-chrome ventoy-bin onlyoffice-bin rate-mirrors-bin yandex-browser latte-dock-git
 #
 pikaur -S xpadneo-dkms
 #rate-mirror:
