@@ -38,7 +38,7 @@ sudo pacman -S plasma plasma-desktop breeze breeze-gtk kde-gtk-config sddm
 #nvidia and cuda:
 sudo pacman -S nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils cuda libva-vdpau-driver lib32-libva-vdpau-driver libva-utils vdpauinfo
 #KDE drivers and apps:
-sudo pacman -S dolphin konsole kdenlive gwenview elisa mpv kcalc kcalendarcore kdeconnect plasma-wayland-session egl-wayland kwalletmanager kdenetwork-filesharing samba spectacle
+sudo pacman -S dolphin konsole kdenlive gwenview elisa mpv kcalc kcalendarcore5 kdeconnect plasma-wayland-session egl-wayland kwalletmanager kdenetwork-filesharing samba spectacle
 #apps:
 sudo pacman -S firefox gparted packagekit-qt5 ark engrampa caja p7zip unace brotli rpm-tools cpio steam steam-native-runtime obs-studio blender krita qbittorrent telegram-desktop gnome-disk-utility
 #apps:
