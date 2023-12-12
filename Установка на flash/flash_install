@@ -44,8 +44,8 @@ mkfs.btrfs -f $disk_root
 mkfs.vfat $disk_boot
 #раскомментируйте необходимое:
 #formatting disk:
-mkswap $disk_swap
-swapon $disk_swap
+#mkswap $disk_swap
+#swapon $disk_swap
 #mount mnt:
 mount $disk_root /mnt
 #cd /mnt:
@@ -69,15 +69,13 @@ echo '--------------------------------------------------'
 #sleep:
 sleep $sleep
 #mount disk: 
- mount -o compress-force,ssd,subvol=@ $disk_root /mnt 
+ mount -o rw,noatime,compress-force=zstd:3,ssd,discard,subvol=@ $disk_root /mnt
  #mkdir folders: 
- mkdir /mnt/{var,home,boot} 
+ mkdir /mnt/{home,boot}
  #mkdir /boot/efi: 
  mkdir /mnt/boot/efi 
  #mount disk: 
- mount -o compress-force,ssd,subvol=@home $disk_root /mnt/home 
- #mount disk: 
- mount -o compress-force,ssd,subvol=@var $disk_root /mnt/var
+ mount -o rw,noatime,compress-force=zstd:3,ssd,discard,subvol=@home $disk_root /mnt/home
 echo '--------------------------------------------------'
 echo '|             Установка Arch Linux                |'
 echo '--------------------------------------------------'
