@@ -98,6 +98,12 @@ grub-mkconfig -o /boot/grub/grub.cfg
 mkinitcpio -P
 #mkinitcpio:
 sed -i 's|HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems fsck)|HOOKS=(base udev modconf kms keyboard keymap consolefont block filesystems fsck)|g' /etc/mkinitcpio.conf
+#
+echo 'tmpfs /tmp tmpfs rw,nodev,nosuid 0 0' >> /etc/fstab
+#
+echo 'tmpfs /var/tmp tmpfs defaults 0 0' >> /etc/fstab
+#
+echo 'tmpfs /var/log tmpfs defaults 0 0' >> /etc/fstab
 #mkinitcpio:
 mkinitcpio -P
 #sleep:
