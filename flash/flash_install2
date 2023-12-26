@@ -1,0 +1,116 @@
+#!/bin/bash
+
+#Замените на своё:
+username=neo
+hostname=matrix
+pass=1811
+disk_root=/dev/sdX
+disk_boot=/dev/sdX
+flash=/dev/sdX
+sleep=5
+
+echo '--------------------------------------------------'
+echo '|Установка Arch Linux '$username'@'hostname'      |'
+echo '--------------------------------------------------'
+#sleep:
+sleep $sleep
+#fonts:
+setfont cyr-sun16
+#echo:
+echo KEYMAP=ru >> /etc/vconsole.conf
+#echo:
+echo FONT=cyr-sun16 >> /etc/vconsole.conf
+#services:
+systemctl enable iwd.service
+#services:
+systemctl enable NetworkManager.service
+#mount boot:
+mount $disk_boot /boot/efi
+#hostname:
+echo $hostname >> /etc/hostname
+#locale eng:
+sed -i 's|#en_US.UTF-8 UTF-8|en_US.UTF-8 UTF-8|g' /etc/locale.gen
+#locale rus:
+sed -i 's|#ru_RU.UTF-8 UTF-8|ru_RU.UTF-8 UTF-8|g' /etc/locale.gen
+#locale generation:
+locale-gen
+#locale conf:
+echo LANG=en_US.UTF-8 >> /etc/locale.conf
+#locale conf:
+echo LANG=ru_RU.UTF-8 >> /etc/locale.conf
+#passwd root:
+(   
+    echo $pass
+    echo $pass
+) | passwd
+#add user:
+useradd -m -G wheel,video -s /bin/bash $username
+#passwd user:
+(
+    echo $pass
+    echo $pass
+) | passwd $username
+#pacman.conf:
+sed -i 's|#ParallelDownloads = 5|ParallelDownloads = 5|g' /etc/pacman.conf
+#pacman.conf:
+echo '[multilib]' >> /etc/pacman.conf
+#pacman.conf:
+echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
+#install core lqx:
+echo '[liquorix]' >> /etc/pacman.conf
+#install core lqx:
+echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf
+#install core lqx:
+pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
+#install core lqx:
+pacman-key --lsign-key 9AE4078033F8024D
+#pacman -Sy:
+pacman -Sy
+#install core lqx:
+pacman -S linux-lqx linux-lqx-headers --noconfirm
+#sudoers:
+#без запроса пароля:
+#sed -i 's|# %wheel ALL=(ALL:ALL) NOPASSWD: ALL|%wheel ALL=(ALL:ALL) NOPASSWD: ALL|g' /etc/sudoers
+#с запросом пароля:
+sed -i 's|# %wheel ALL=(ALL:ALL) ALL|%wheel ALL=(ALL:ALL) ALL|g' /etc/sudoers
+#blkid:
+uuid=$(blkid -s UUID -o value $disk_root)
+#раскомментируйте необходимое:
+#refind nvidia:
+echo '"Boot to standard options" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1"' >> /boot/refind_linux.conf
+#refind nvidia:
+echo '"Boot to single-user mode" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs nvidia-drm.modeset=1 single"' >> /boot/refind_linux.conf
+#refind mesa:
+#echo '"Boot to standard options" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs"' >> /boot/refind_linux.conf
+#refind mesa:
+#echo '"Boot to single-user mode" "rw root=UUID='$uuid' rootflags=subvol=@ loglevel=0 quiet splash rootfstype=btrfs single"' >> /boot/refind_linux.conf
+#refind:
+echo '"Boot with minimal options ro root='$disk_root'"' >> /boot/refind_linux.conf
+#refind:
+refind-install
+# Получите уникальный идентификатор EFI раздела
+EFI_PARTITION=$(blkid -o value -s UUID $disk_boot)
+# Установите GRUB с использованием уникального идентификатора
+grub-install --target=x86_64-efi --efi-directory="/boot/efi" --bootloader-id=grub --recheck --debug --removable --no-nvram --modules="part_gpt part_msdos" --skip-fs-probe
+# Обновите конфигурацию GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+#mkinitcpio:
+mkinitcpio -P
+#mkinitcpio:
+sed -i 's|HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems fsck)|HOOKS=(base udev modconf kms keyboard keymap consolefont block filesystems fsck)|g' /etc/mkinitcpio.conf
+#
+echo 'tmpfs /tmp tmpfs rw,nodev,nosuid 0 0' >> /etc/fstab
+#
+echo 'tmpfs /var/tmp tmpfs defaults 0 0' >> /etc/fstab
+#
+echo 'tmpfs /var/log tmpfs defaults 0 0' >> /etc/fstab
+#mkinitcpio:
+mkinitcpio -P
+#sleep:
+#sleep $sleep
+#echo '--------------------------------------------------------------------------------'
+#echo '|                    Установка пользовательских приложений                     |'
+#echo '--------------------------------------------------------------------------------'
+#echo "$username:$pass" | chpasswd && sh "/home/$username/flash_install3.sh" $username $pass
+#exit:
+exit
