@@ -55,7 +55,7 @@ btrfs su cr @
 #su cr:
 btrfs su cr @home
 #su cr:
-btrfs su cr @var
+#btrfs su cr @var
 #cd:
 cd
 #umount:
