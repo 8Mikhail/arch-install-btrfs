@@ -88,9 +88,9 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 #chroot:
 mkdir -p /mnt/home/$username/
 #chroot nvidia:
-cp -f arch-install-btrfs/flash_install /mnt/home/$username/
-cp -f arch-install-btrfs/flash_install2 /mnt/home/$username/
-cp -f arch-install-btrfs/flash_install3.sh /mnt/home/$username/
+cp -f arch-install-btrfs/flash/flash_install /mnt/home/$username/
+cp -f arch-install-btrfs/flash/flash_install2 /mnt/home/$username/
+cp -f arch-install-btrfs/flash/flash_install3.sh /mnt/home/$username/
 #sleep:
 #sleep $sleep
 #раскомментируйте необходимое:
