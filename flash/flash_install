@@ -55,7 +55,7 @@ btrfs su cr @
 #su cr:
 btrfs su cr @home
 #su cr:
-#btrfs su cr @var
+btrfs su cr @var
 #cd:
 cd
 #umount:
@@ -71,11 +71,12 @@ sleep $sleep
 #mount disk: 
  mount -o rw,noatime,compress=zstd:3,ssd,discard,subvol=@ $disk_root /mnt
  #mkdir folders: 
- mkdir /mnt/{home,boot}
- #mkdir /boot/efi: 
+ mkdir /mnt/{home,var,boot}
+ #mkdir /boot/efi 
  mkdir /mnt/boot/efi 
  #mount disk: 
  mount -o rw,noatime,compress=zstd:3,ssd,discard,subvol=@home $disk_root /mnt/home
+mount -o rw,noatime,compress=zstd:3,ssd,discard,subvol=@var $disk_root /mnt/var
 echo '--------------------------------------------------'
 echo '|             Установка Arch Linux                |'
 echo '--------------------------------------------------'
