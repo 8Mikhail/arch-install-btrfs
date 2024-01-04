@@ -9,7 +9,7 @@ username=neo
 hostname=matrix
 pass=1811
 disk_root=/dev/sdf2
-disk_boot=/dev/sd1
+disk_boot=/dev/sdf1
 flash=/dev/sdf
 #Раскомментируйте необходимое:
 disk_swap=/dev/sdX
