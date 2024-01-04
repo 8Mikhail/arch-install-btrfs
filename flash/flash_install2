@@ -4,9 +4,9 @@
 username=neo
 hostname=matrix
 pass=1811
-disk_root=/dev/sdX
-disk_boot=/dev/sdX
-flash=/dev/sdX
+disk_root=/dev/sdf2
+disk_boot=/dev/sdf1
+flash=/dev/sdf
 sleep=5
 
 echo '--------------------------------------------------'
