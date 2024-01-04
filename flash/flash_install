@@ -8,9 +8,9 @@ echo '--------------------------------------------------'
 username=neo
 hostname=matrix
 pass=1811
-disk_root=/dev/sdX
-disk_boot=/dev/sdX
-flash=/dev/sdX
+disk_root=/dev/sdf2
+disk_boot=/dev/sd1
+flash=/dev/sdf
 #Раскомментируйте необходимое:
 disk_swap=/dev/sdX
 #ucode=amd-ucode
@@ -69,13 +69,13 @@ echo '--------------------------------------------------'
 #sleep:
 sleep $sleep
 #mount disk: 
- mount -o rw,noatime,compress-force=zstd:3,ssd,discard,subvol=@ $disk_root /mnt
+ mount -o rw,noatime,compress=zstd:3,ssd,discard,subvol=@ $disk_root /mnt
  #mkdir folders: 
  mkdir /mnt/{home,boot}
  #mkdir /boot/efi: 
  mkdir /mnt/boot/efi 
  #mount disk: 
- mount -o rw,noatime,compress-force=zstd:3,ssd,discard,subvol=@home $disk_root /mnt/home
+ mount -o rw,noatime,compress=zstd:3,ssd,discard,subvol=@home $disk_root /mnt/home
 echo '--------------------------------------------------'
 echo '|             Установка Arch Linux                |'
 echo '--------------------------------------------------'
@@ -103,5 +103,5 @@ arch-chroot /mnt /bin/bash -c "$(cat /mnt/home/$username/flash_install2)" $usern
 #echo '--------------------------------------------------'
 #echo '|                 Перезагрузка                   |'
 #echo '--------------------------------------------------'
-umount -R /mnt/
-reboot
+#umount -R /mnt/
+#reboot
