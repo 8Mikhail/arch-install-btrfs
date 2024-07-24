@@ -50,11 +50,11 @@ mount $disk_root /mnt
 #cd /mnt:
 cd /mnt
 #su cr:
-btrfs su cr @
+su cr @
 #su cr:
-btrfs su cr @home
+su cr @home
 #su cr:
-btrfs su cr @var
+su cr @var
 #cd:
 cd
 #umount:
