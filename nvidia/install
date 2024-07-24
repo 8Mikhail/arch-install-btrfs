@@ -50,11 +50,11 @@ mount $disk_root /mnt
 #cd /mnt:
 cd /mnt
 #su cr:
-su cr @
+btrfs su cr @
 #su cr:
-su cr @home
+btrfs su cr @home
 #su cr:
-su cr @var
+btrfs su cr @var
 #cd:
 cd
 #umount:
@@ -66,15 +66,15 @@ echo '--------------------------------------------------'
 echo '|             Монтирование разделов               |'
 echo '--------------------------------------------------'
 #mount disk: 
- mount -o rw,noatime,compress=lzo,recovery,autodefrag,space_cache=v2,ssd,discard=async,subvol=@ $disk_root /mnt 
+ mount -o rw,noatime,compress=lzo,space_cache=v2,ssd,discard=async,subvol=@ $disk_root /mnt 
  #mkdir folders: 
  mkdir /mnt/{var,home,boot} 
  #mkdir /boot/efi: 
  mkdir /mnt/boot/efi 
  #mount disk: 
- mount -o rw,noatime,compress=lzo,recovery,autodefrag,space_cache=v2,ssd,discard=async,subvol=@home $disk_root /mnt/home 
+ mount -o rw,noatime,compress=lzo,space_cache=v2,ssd,discard=async,subvol=@home $disk_root /mnt/home 
  #mount disk: 
- mount -o rw,noatime,compress=lzo,recovery,autodefrag,space_cache=v2,ssd,discard=async,subvol=@var $disk_root /mnt/var
+ mount -o rw,noatime,compress=lzo,space_cache=v2,ssd,discard=async,subvol=@var $disk_root /mnt/var
  #sleep: 
  #sleep $sleep '--------------------------------------------------'
 echo '|             Установка Arch Linux                |'
