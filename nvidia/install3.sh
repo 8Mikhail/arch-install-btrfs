@@ -4,7 +4,7 @@
 username=neo
 pass=1811
 amd=mesa lib32-mesa libva-mesa-driver lib32-libva-mesa-driver
-nvidia=nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils cuda libva-vdpau-driver lib32-libva-vdpau-driver
+nvidia=nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils vdpau-nvidia-driver lib32-vdpau-nvidia-driver
 nvidia_no_vdpau_nvidia=nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils cuda
 
 #install zsh:
@@ -39,11 +39,9 @@ echo '--------------------------------------------------'
 echo '|              Установка драйверов               |'
 echo '--------------------------------------------------'
 #xorg:
-sudo pacman -S xorg-server xorg-xinit mesa --noconfirm
-#enviroment
-sudo pacman -S gnu-free-fonts --noconfirm
+sudo pacman -S xorg-server mesa --noconfirm
 #pipewire:
-sudo pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack --noconfirm
+sudo pacman -S lib32-pipewire wireplumber lib32-pipewire-jack --noconfirm
 #KDE and apps:
 sudo pacman -S plasma plasma-desktop breeze breeze-gtk kde-gtk-config --noconfirm
 #KDE drivers and apps:
