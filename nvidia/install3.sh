@@ -4,8 +4,8 @@
 username=neo
 pass=1811
 amd=mesa lib32-mesa libva-mesa-driver lib32-libva-mesa-driver
-nvidia=nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils vdpau-nvidia-driver lib32-vdpau-nvidia-driver
-nvidia_no_vdpau_nvidia=nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils cuda
+nvidia=nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-vdpau-nvidia-utils vdpau-nvidia-driver lib32-vdpau-nvidia-driver
+nvidia_no_vdpau_nvidia=nvidia-dkms nvidia-utils opencl-nvidia nvidia-settings lib32-opencl-nvidia lib32-nvidia-utils libva-nvidia-driver lib32-libva-nvidia-driver
 
 #install zsh:
 echo '--------------------------------------------------'
