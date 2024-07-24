@@ -8,8 +8,8 @@ echo '--------------------------------------------------'
 username=neo
 hostname=matrix
 pass=1811
-disk_root=/dev/sde2
-disk_boot=/dev/sde1
+disk_root=/dev/sdc2
+disk_boot=/dev/sdc1
 sleep=5
 
 sleep $sleep
