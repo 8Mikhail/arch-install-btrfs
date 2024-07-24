@@ -12,8 +12,8 @@ disk_root=/dev/nvme0n1p5
 disk_boot=/dev/nvme0n1p1
 #Раскомментируйте необходимое:
 disk_swap=/dev/nvme0n1p6
-#ucode=amd-ucode
-ucode=intel-ucode
+ucode=amd-ucode
+#ucode=intel-ucode
 sleep=5
 
 #setfont cyr-sun16:
@@ -40,7 +40,7 @@ sleep $sleep
 #formating disk:
 mkfs.btrfs -f $disk_root
 #formating disk:
-#mkfs.vfat $disk_boot
+mkfs.vfat $disk_boot
 #раскомментируйте необходимое:
 #formatting disk:
 mkswap $disk_swap
