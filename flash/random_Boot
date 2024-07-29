@@ -1,0 +1,10 @@
+# Получите уникальный идентификатор EFI раздела
+EFI_PARTITION=$(blkid -o value -s UUID $disk_boot)
+# Установите GRUB с использованием уникального идентификатора
+grub-install --target=x86_64-efi --efi-directory="/boot/efi" --bootloader-id=grub --recheck --debug --removable --no-nvram --modules="part_gpt part_msdos" --skip-fs-probe
+# Обновите конфигурацию GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+#mkinitcpio:
+mkinitcpio -P
+#mkinitcpio:
+sed -i 's|HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems fsck)|HOOKS=(base udev modconf kms keyboard keymap consolefont block filesystems fsck)|g' /etc/mkinitcpio.conf
